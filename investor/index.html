@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portal Inversor — VILA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Raleway:wght@100;200;300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --charcoal: #2a2825;
+      --warm-white: #faf8f5;
+      --off-white: #f2efe9;
+      --gold: #c9a96e;
+      --gold-light: rgba(201,169,110,0.15);
+      --green: #4a7c59;
+      --green-light: rgba(74,124,89,0.1);
+    }
+    body { background:var(--warm-white); color:var(--charcoal); font-family:Raleway,sans-serif; min-height:100vh; }
+
+    /* HEADER */
+    header {
+      background:var(--warm-white);
+      border-bottom:1px solid rgba(42,40,37,0.08);
+      padding:1.1rem clamp(1.5rem,5vw,4rem);
+      display:flex; align-items:center; justify-content:space-between;
+      position:sticky; top:0; z-index:100;
+    }
+    .brand { font-family:"Cormorant Garamond",serif; font-weight:300; font-size:1.3rem; letter-spacing:0.15em; }
+    .brand-sub { font-size:0.56rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(42,40,37,0.38); display:block; margin-top:0.15rem; font-family:Raleway,sans-serif; font-weight:200; }
+    .header-right { display:flex; align-items:center; gap:1rem; }
+    .user-name { font-weight:200; font-size:0.66rem; letter-spacing:0.12em; color:rgba(42,40,37,0.5); }
+    .btn-sm { background:none; border:1px solid rgba(42,40,37,0.18); font-family:Raleway,sans-serif; font-weight:200; font-size:0.54rem; letter-spacing:0.28em; text-transform:uppercase; color:rgba(42,40,37,0.45); padding:0.38rem 0.9rem; cursor:pointer; transition:all 0.2s; }
+    .btn-sm:hover { border-color:var(--charcoal); color:var(--charcoal); }
+
+    /* MAIN */
+    main { max-width:920px; margin:0 auto; padding:2.5rem clamp(1.2rem,5vw,4rem); }
+
+    /* Welcome */
+    .welcome { margin-bottom:2rem; }
+    .eyebrow { font-size:0.56rem; letter-spacing:0.42em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem; font-weight:200; }
+    .page-title { font-family:"Cormorant Garamond",serif; font-weight:300; font-size:clamp(1.5rem,3vw,2.1rem); margin-bottom:0.25rem; }
+    .page-sub { font-weight:200; font-size:0.68rem; letter-spacing:0.1em; color:rgba(42,40,37,0.42); }
+    .rule { width:30px; height:1px; background:var(--gold); margin-top:0.8rem; }
+
+    /* Period selector */
+    .period-bar { display:flex; gap:0.35rem; margin-bottom:2rem; flex-wrap:wrap; }
+    .period-btn { background:none; border:1px solid rgba(42,40,37,0.12); font-family:Raleway,sans-serif; font-weight:200; font-size:0.54rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(42,40,37,0.4); padding:0.38rem 0.85rem; cursor:pointer; transition:all 0.2s; }
+    .period-btn:hover { border-color:rgba(42,40,37,0.3); color:var(--charcoal); }
+    .period-btn.active { background:var(--charcoal); border-color:var(--charcoal); color:var(--warm-white); }
+
+    /* Stats */
+    .stats { display:grid; grid-template-columns:repeat(auto-fill,minmax(155px,1fr)); gap:0.8rem; margin-bottom:1.8rem; }
+    .stat { background:white; border:1px solid rgba(42,40,37,0.08); padding:1.2rem; }
+    .stat-label { font-weight:200; font-size:0.5rem; letter-spacing:0.28em; text-transform:uppercase; color:rgba(42,40,37,0.38); margin-bottom:0.4rem; }
+    .stat-val { font-family:"Cormorant Garamond",serif; font-weight:300; font-size:1.6rem; color:var(--charcoal); }
+    .stat-sub { font-weight:200; font-size:0.58rem; color:rgba(42,40,37,0.32); margin-top:0.18rem; }
+
+    /* ── HITOS TIMELINE ── */
+    .hitos-wrap { background:white; border:1px solid rgba(42,40,37,0.08); padding:1.8rem; margin-bottom:1rem; }
+    .block-title { font-family:"Cormorant Garamond",serif; font-weight:300; font-size:1.05rem; letter-spacing:0.1em; color:var(--charcoal); margin-bottom:1.5rem; padding-bottom:0.8rem; border-bottom:1px solid rgba(42,40,37,0.07); display:flex; justify-content:space-between; align-items:center; }
+    .block-badge { font-family:Raleway,sans-serif; font-weight:200; font-size:0.5rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(201,169,110,0.35); padding:0.22rem 0.55rem; }
+
+    /* Horizontal hitos */
+    .hitos-track {
+      display:flex; align-items:flex-start;
+      position:relative; padding-bottom:0.5rem;
+      overflow-x:auto; gap:0;
+    }
+    .hito {
+      display:flex; flex-direction:column; align-items:center;
+      flex:1; min-width:100px; position:relative;
+    }
+    /* line between hitos */
+    .hito:not(:last-child)::after {
+      content:"";
+      position:absolute;
+      top:14px; left:50%;
+      width:100%; height:2px;
+      z-index:0;
+    }
+    .hito.done:not(:last-child)::after { background:var(--green); }
+    .hito.active:not(:last-child)::after { background:linear-gradient(to right, var(--gold) 40%, rgba(42,40,37,0.1) 100%); }
+    .hito.pending:not(:last-child)::after { background:rgba(42,40,37,0.1); }
+
+    .hito-dot {
+      width:28px; height:28px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.65rem; position:relative; z-index:1;
+      flex-shrink:0;
+    }
+    .hito.done .hito-dot { background:var(--green); color:white; }
+    .hito.active .hito-dot { background:var(--gold); color:white; box-shadow:0 0 0 4px rgba(201,169,110,0.2); }
+    .hito.pending .hito-dot { background:white; border:2px solid rgba(42,40,37,0.15); color:rgba(42,40,37,0.3); }
+
+    .hito-label {
+      margin-top:0.6rem; font-weight:200;
+      font-size:0.58rem; letter-spacing:0.1em;
+      text-align:center; line-height:1.4;
+      color:rgba(42,40,37,0.5);
+      max-width:90px;
+    }
+    .hito.done .hito-label { color:var(--green); }
+    .hito.active .hito-label { color:var(--charcoal); font-weight:300; }
+
+    .hito-date {
+      font-size:0.52rem; letter-spacing:0.1em;
+      color:rgba(42,40,37,0.3); margin-top:0.2rem;
+      text-align:center;
+    }
+    .hito.active .hito-date { color:var(--gold); }
+
+    /* Progress bars */
+    .progress-wrap { background:white; border:1px solid rgba(42,40,37,0.08); padding:1.5rem; margin-bottom:1rem; }
+    .progress-row { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.6rem; }
+    .progress-name { font-family:"Cormorant Garamond",serif; font-weight:300; font-size:1rem; letter-spacing:0.08em; }
+    .progress-pct { font-family:"Cormorant Garamond",serif; font-weight:300; font-size:1.3rem; color:var(--gold); }
+    .progress-bg { height:2px; background:rgba(42,40,37,0.08); width:100%; margin-bottom:0.35rem; }
+    .progress-fill { height:2px; background:var(--gold); }
+    .progress-sub { font-weight:200; font-size:0.54rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(42,40,37,0.32); }
+
+    /* Rubros por fase */
+    .rubros-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; }
+    .rubro-group { background:white; border:1px solid rgba(42,40,37,0.08); padding:1.2rem; }
+    .rubro-group-title { font-weight:300; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(42,40,37,0.45); margin-bottom:0.8rem; padding-bottom:0.6rem; border-bottom:1px solid rgba(42,40,37,0.06); display:flex; justify-content:space-between; }
+    .rubro-pct { font-family:"Cormorant Garamond",serif; font-weight:300; font-size:1rem; color:var(--gold); }
+    .rubro-item-row { display:flex; align-items:center; justify-content:space-between; padding:0.4rem 0; border-bottom:1px solid rgba(42,40,37,0.04); }
+    .rubro-item-row:last-child { border-bottom:none; }
+    .rubro-item-name { font-weight:200; font-size:0.72rem; color:rgba(42,40,37,0.7); }
+    .badge { font-weight:200; font-size:0.48rem; letter-spacing:0.18em; text-transform:uppercase; padding:0.18rem 0.45rem; }
+    .badge-done { color:var(--green); background:var(--green-light); border:1px solid rgba(74,124,89,0.18); }
+    .badge-wip  { color:#b8840a; background:var(--gold-light); border:1px solid rgba(201,169,110,0.3); }
+    .badge-pend { color:rgba(42,40,37,0.3); background:rgba(42,40,37,0.04); border:1px solid rgba(42,40,37,0.1); }
+
+    /* Block genérico */
+    .block { background:white; border:1px solid rgba(42,40,37,0.08); padding:1.8rem; margin-bottom:1rem; }
+
+    /* Bullet list */
+    .bullet-list { display:flex; flex-direction:column; gap:0.55rem; }
+    .bullet-item { display:flex; gap:0.8rem; font-weight:200; font-size:0.78rem; line-height:1.75; color:rgba(42,40,37,0.68); }
+    .bullet-dot { width:4px; height:4px; border-radius:50%; background:var(--gold); flex-shrink:0; margin-top:0.6rem; }
+    strong { font-weight:300; }
+
+    /* Director */
+    .director-msg { background:var(--off-white); border-left:2px solid var(--gold); padding:1.4rem 1.6rem; margin-bottom:1rem; }
+    .director-quote { font-family:"Cormorant Garamond",serif; font-weight:300; font-style:italic; font-size:0.98rem; line-height:1.9; color:var(--charcoal); margin-bottom:0.7rem; }
+    .director-name { font-weight:200; font-size:0.58rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(42,40,37,0.42); }
+
+    /* Docs */
+    .doc-list { display:flex; flex-direction:column; gap:0.55rem; }
+    .doc-item { display:flex; align-items:center; justify-content:space-between; padding:0.85rem 1rem; border:1px solid rgba(42,40,37,0.08); text-decoration:none; color:var(--charcoal); transition:border-color 0.2s; }
+    .doc-item:hover { border-color:var(--gold); }
+    .doc-icon { font-size:1rem; margin-right:0.8rem; flex-shrink:0; }
+    .doc-info { flex:1; }
+    .doc-name { font-weight:300; font-size:0.78rem; }
+    .doc-type { font-weight:200; font-size:0.54rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(42,40,37,0.38); margin-top:0.12rem; }
+    .doc-arrow { color:var(--gold); }
+
+    @media(max-width:640px) {
+      .stats { grid-template-columns:1fr 1fr; }
+      .rubros-grid { grid-template-columns:1fr; }
+      .hito-label { font-size:0.5rem; max-width:70px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    VILA
+    <span class="brand-sub">Portal de Inversores</span>
+  </div>
+  <div class="header-right">
+    <span class="user-name">Lucía Cuniolo</span>
+    <button class="btn-sm">Salir</button>
+  </div>
+</header>
+
+<main>
+
+  <div class="welcome">
+    <div class="eyebrow">Informe de Avance — Febrero 2026</div>
+    <div class="page-title">Pilar Golf — Lotes 27 / 28</div>
+    <div class="page-sub">Barrio Pilar Golf, Pilar · Actualizado: 28 Feb 2026</div>
+    <div class="rule"></div>
+  </div>
+
+  <!-- Período -->
+  <div class="period-bar">
+    <button class="period-btn">Oct 2024</button>
+    <button class="period-btn">Nov 2024</button>
+    <button class="period-btn">Dic 2024</button>
+    <button class="period-btn">Ene 2026</button>
+    <button class="period-btn active">Feb 2026</button>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label">Proyecto</div>
+      <div class="stat-val" style="font-size:1rem;margin-top:0.3rem;">PG 27 / 28</div>
+      <div class="stat-sub">Barrio Pilar Golf</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Capital invertido</div>
+      <div class="stat-val">USD 80K</div>
+      <div class="stat-sub">Participación: 40%</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Avance Lote 27</div>
+      <div class="stat-val">9,78%</div>
+      <div class="stat-sub">Acumulado Feb. 2026</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Avance Lote 28</div>
+      <div class="stat-val">8,93%</div>
+      <div class="stat-sub">Acumulado Feb. 2026</div>
+    </div>
+  </div>
+
+
+  <!-- Fotos del mes -->
+  <div class="block" style="margin-bottom:1rem;padding:1.8rem 1.8rem 1.4rem;">
+    <div class="block-title">Fotos del Mes <span class="block-badge">Febrero 2026</span></div>
+    <div style="position:relative;">
+      <!-- Carousel track -->
+      <div id="photoTrack" style="display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;">
+        <div style="flex:0 0 auto;width:72%;scroll-snap-align:center;aspect-ratio:16/10;overflow:hidden;background:#e8e4de;">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=70" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        </div>
+        <div style="flex:0 0 auto;width:72%;scroll-snap-align:center;aspect-ratio:16/10;overflow:hidden;background:#e8e4de;">
+          <img src="https://images.unsplash.com/photo-1600566753151-384129cf4d3a?w=900&q=70" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        </div>
+        <div style="flex:0 0 auto;width:72%;scroll-snap-align:center;aspect-ratio:16/10;overflow:hidden;background:#e8e4de;">
+          <img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=900&q=70" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        </div>
+        <div style="flex:0 0 auto;width:72%;scroll-snap-align:center;aspect-ratio:16/10;overflow:hidden;background:#e8e4de;">
+          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=900&q=70" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        </div>
+        <div style="flex:0 0 auto;width:72%;scroll-snap-align:center;aspect-ratio:16/10;overflow:hidden;background:#e8e4de;">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=70" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        </div>
+      </div>
+      <!-- Arrows -->
+      <button id="photoPrev" onclick="slidePhoto(-1)" style="position:absolute;left:0.5rem;top:50%;transform:translateY(-50%);background:rgba(250,248,245,0.9);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 6px rgba(0,0,0,0.12);">
+        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M7 1L3 5l4 4" stroke="#2a2825" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+      </button>
+      <button id="photoNext" onclick="slidePhoto(1)" style="position:absolute;right:0.5rem;top:50%;transform:translateY(-50%);background:rgba(250,248,245,0.9);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 6px rgba(0,0,0,0.12);">
+        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M3 1l4 4-4 4" stroke="#2a2825" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <!-- Dots -->
+    <div id="photoDots" style="display:flex;justify-content:center;gap:6px;margin-top:1rem;">
+      <div class="pdot active" onclick="goToPhoto(0)" style="width:5px;height:5px;border-radius:50%;background:#c9a96e;cursor:pointer;"></div>
+      <div class="pdot" onclick="goToPhoto(1)" style="width:5px;height:5px;border-radius:50%;background:rgba(42,40,37,0.2);cursor:pointer;"></div>
+      <div class="pdot" onclick="goToPhoto(2)" style="width:5px;height:5px;border-radius:50%;background:rgba(42,40,37,0.2);cursor:pointer;"></div>
+      <div class="pdot" onclick="goToPhoto(3)" style="width:5px;height:5px;border-radius:50%;background:rgba(42,40,37,0.2);cursor:pointer;"></div>
+      <div class="pdot" onclick="goToPhoto(4)" style="width:5px;height:5px;border-radius:50%;background:rgba(42,40,37,0.2);cursor:pointer;"></div>
+    </div>
+    <!-- Counter -->
+    <div id="photoCounter" style="text-align:center;font-family:Raleway,sans-serif;font-weight:200;font-size:0.54rem;letter-spacing:0.3em;color:rgba(42,40,37,0.35);margin-top:0.4rem;">1 / 5</div>
+  </div>
+
+  <!-- HITOS -->
+  <div class="hitos-wrap">
+    <div class="block-title">Hitos de Obra <span class="block-badge">Lote 27</span></div>
+    <div class="hitos-track">
+
+      <div class="hito done">
+        <div class="hito-dot">✓</div>
+        <div class="hito-label">Fundación Hormigonada</div>
+        <div class="hito-date">9 Feb 2026</div>
+      </div>
+
+      <div class="hito active">
+        <div class="hito-dot">▶</div>
+        <div class="hito-label">Estructura sobre PB</div>
+        <div class="hito-date">En curso</div>
+      </div>
+
+      <div class="hito pending">
+        <div class="hito-dot">3</div>
+        <div class="hito-label">Estructura Azotea</div>
+        <div class="hito-date">Mar 2026</div>
+      </div>
+
+      <div class="hito pending">
+        <div class="hito-dot">4</div>
+        <div class="hito-label">Fin Obra Gris</div>
+        <div class="hito-date">Jun 2026</div>
+      </div>
+
+      <div class="hito pending">
+        <div class="hito-dot">5</div>
+        <div class="hito-label">Entrega</div>
+        <div class="hito-date">Oct 2026</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Progress bars -->
+  <div class="progress-wrap" style="margin-bottom:0.8rem;">
+    <div class="progress-row">
+      <div class="progress-name">Lote 27</div>
+      <div class="progress-pct">9,78%</div>
+    </div>
+    <div class="progress-bg"><div class="progress-fill" style="width:9.78%"></div></div>
+    <div class="progress-sub">Avance acumulado · Etapa: Hormigón estructural</div>
+  </div>
+  <div class="progress-wrap" style="margin-bottom:1.8rem;">
+    <div class="progress-row">
+      <div class="progress-name">Lote 28</div>
+      <div class="progress-pct">8,93%</div>
+    </div>
+    <div class="progress-bg"><div class="progress-fill" style="width:8.93%"></div></div>
+    <div class="progress-sub">Avance acumulado · Etapa: Hormigón estructural</div>
+  </div>
+
+  <!-- Rubros por grupo -->
+  <div class="block" style="margin-bottom:1rem;">
+    <div class="block-title">A. Avance de Obra por Rubros</div>
+    <div class="rubros-grid">
+
+      <div class="rubro-group">
+        <div class="rubro-group-title">Trabajos Preliminares <span class="rubro-pct">3%</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Cerco y obrador</span><span class="badge badge-done">Concluido</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Replanteos y ejes</span><span class="badge badge-done">Concluido</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Movimiento de suelos</span><span class="badge badge-done">Concluido</span></div>
+      </div>
+
+      <div class="rubro-group">
+        <div class="rubro-group-title">Estructura H°A° <span class="rubro-pct">22%</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Platea de fundación</span><span class="badge badge-done">Concluido</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Encofrado tabiques PB</span><span class="badge badge-wip">En ejecución</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Columnas y vigas PB</span><span class="badge badge-wip">En ejecución</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Losa sobre PB</span><span class="badge badge-pend">Pendiente</span></div>
+      </div>
+
+      <div class="rubro-group">
+        <div class="rubro-group-title">Instalaciones Sanitarias <span class="rubro-pct">7%</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Tendido cloacal bajo platea</span><span class="badge badge-done">Concluido</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Tendido PB</span><span class="badge badge-pend">Pendiente</span></div>
+      </div>
+
+      <div class="rubro-group">
+        <div class="rubro-group-title">Instalación Eléctrica <span class="rubro-pct">7%</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Tendidos bajo platea</span><span class="badge badge-done">Concluido</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Cajas y corrugado PB</span><span class="badge badge-pend">Pendiente</span></div>
+      </div>
+
+      <div class="rubro-group">
+        <div class="rubro-group-title">Mampostería <span class="rubro-pct">11%</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Cajón hidrofugo</span><span class="badge badge-pend">Pendiente</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Elevación exterior PB</span><span class="badge badge-pend">Pendiente</span></div>
+      </div>
+
+      <div class="rubro-group">
+        <div class="rubro-group-title">Revoques <span class="rubro-pct">9%</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Exteriores PB</span><span class="badge badge-pend">Pendiente</span></div>
+        <div class="rubro-item-row"><span class="rubro-item-name">Interiores PB</span><span class="badge badge-pend">Pendiente</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- B. Compras -->
+  <div class="block">
+    <div class="block-title">B. Compras del Período</div>
+    <div class="bullet-list">
+      <div class="bullet-item"><div class="bullet-dot"></div><div><strong>Materiales de Corralón:</strong> Hierros, polietileno y menores para platea. Previsión acopio para mampostería PB.</div></div>
+      <div class="bullet-item"><div class="bullet-dot"></div><div><strong>Materiales Eléctricos:</strong> Materiales para instalaciones bajo platea.</div></div>
+      <div class="bullet-item"><div class="bullet-dot"></div><div><strong>Maderas:</strong> Compra de maderas para encofrados.</div></div>
+      <div class="bullet-item"><div class="bullet-dot"></div><div><strong>Materiales Cloacales, Pluviales y Sanitarios:</strong> Tendidos bajo platea y PB.</div></div>
+      <div class="bullet-item"><div class="bullet-dot"></div><div><strong>Hormigón:</strong> Contratación de servicio de bombeo y hormigón estructural.</div></div>
+    </div>
+  </div>
+
+  <!-- C. Próximos pasos -->
+  <div class="block">
+    <div class="block-title">C. Próximos Pasos <span class="block-badge">Marzo 2026</span></div>
+    <div class="bullet-list">
+      <div class="bullet-item"><div class="bullet-dot"></div><div>Encofrado y armadura de columnas, vigas y losas sobre PB.</div></div>
+      <div class="bullet-item"><div class="bullet-dot"></div><div>Encofrado y armadura de tabiques de hormigón visto de PB.</div></div>
+      <div class="bullet-item"><div class="bullet-dot"></div><div>Ejecución de bases aisladas para columnas semicubiertos sobre PB.</div></div>
+      <div class="bullet-item"><div class="bullet-dot"></div><div>Tendidos de instalaciones eléctricas sobre PB.</div></div>
+    </div>
+  </div>
+
+  <!-- Mensaje Director -->
+  <div class="director-msg">
+    <div class="director-quote">"Cerramos un inicio de obra con un balance muy positivo. Pese a los feriados de Año Nuevo, se trabajó sin merma del personal logrando finalizar los trabajos preliminares en ambos lotes. En febrero, las casas finalmente superaron la cota cero con el hormigonado de ambas plateas. El proceso de encofrado y armado se realizó con éxito y sin contingencias. Marzo será un mes clave donde comenzaremos a ver el crecimiento estructural de las viviendas."</div>
+    <div class="director-name">Martín Marzinelli · Director de Obra</div>
+  </div>
+
+  <!-- Documentos -->
+  <div class="block">
+    <div class="block-title">Documentos</div>
+    <div class="doc-list">
+      <a href="#" class="doc-item">
+        <span class="doc-icon">📄</span>
+        <div class="doc-info">
+          <div class="doc-name">Informe de Avance — Febrero 2026</div>
+          <div class="doc-type">PDF · Informe mensual</div>
+        </div>
+        <span class="doc-arrow">↓</span>
+      </a>
+      <a href="#" class="doc-item">
+        <span class="doc-icon">📊</span>
+        <div class="doc-info">
+          <div class="doc-name">Análisis de Mercado — Q1 2026</div>
+          <div class="doc-type">PDF · Informe trimestral</div>
+        </div>
+        <span class="doc-arrow">↓</span>
+      </a>
+      <a href="#" class="doc-item">
+        <span class="doc-icon">📋</span>
+        <div class="doc-info">
+          <div class="doc-name">Documentación Legal del Proyecto</div>
+          <div class="doc-type">PDF · Legal</div>
+        </div>
+        <span class="doc-arrow">↓</span>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  // Photo carousel
+  let photoIdx = 0;
+  const track = document.getElementById('photoTrack');
+  const cards = track.querySelectorAll('div[style*="scroll-snap-align"]');
+  const dots = document.querySelectorAll('.pdot');
+  const counter = document.getElementById('photoCounter');
+  const total = cards.length;
+
+  function goToPhoto(idx) {
+    photoIdx = (idx + total) % total;
+    cards[photoIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    dots.forEach((d, i) => {
+      d.style.background = i === photoIdx ? '#c9a96e' : 'rgba(42,40,37,0.2)';
+    });
+    counter.textContent = (photoIdx + 1) + ' / ' + total;
+  }
+
+  window.slidePhoto = (dir) => goToPhoto(photoIdx + dir);
+  window.goToPhoto = goToPhoto;
+
+  // sync on scroll
+  track.addEventListener('scroll', () => {
+    let closest = 0, minDist = Infinity;
+    cards.forEach((c, i) => {
+      const dist = Math.abs(c.getBoundingClientRect().left - track.getBoundingClientRect().left);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    if (closest !== photoIdx) {
+      photoIdx = closest;
+      dots.forEach((d, i) => { d.style.background = i === photoIdx ? '#c9a96e' : 'rgba(42,40,37,0.2)'; });
+      counter.textContent = (photoIdx + 1) + ' / ' + total;
+    }
+  }, { passive: true });
+
+  document.querySelectorAll('.period-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
