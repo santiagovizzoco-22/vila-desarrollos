@@ -551,6 +551,25 @@
       <div class="field"><label>Participación (%)</label><input type="number" placeholder="35"/></div>
     </div>
     <div class="field field-full"><label>Notas</label><textarea placeholder="Condiciones especiales, fechas de acuerdo, etc."></textarea></div>
+    
+    <!-- Cronograma de desembolsos -->
+    <div style="margin-bottom:1rem;">
+      <label style="margin-bottom:0.8rem;display:block;">Cronograma de desembolsos</label>
+      <div id="desembolsos-list" style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:0.8rem;">
+        <div class="desembolso-row" style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:0.5rem;align-items:center;">
+          <input type="text" placeholder="Descripción (ej: Inicio de obra)"/>
+          <input type="number" placeholder="Monto USD"/>
+          <input type="date"/>
+          <select style="width:110px;">
+            <option>Pendiente</option>
+            <option>Realizado</option>
+            <option>Próximo</option>
+          </select>
+        </div>
+      </div>
+      <button onclick="addDesembolso()" style="background:none;border:1px dashed rgba(42,40,37,0.2);font-family:Raleway,sans-serif;font-weight:200;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(42,40,37,0.4);padding:0.5rem 1rem;cursor:pointer;width:100%;">+ Agregar desembolso</button>
+    </div>
+
     <div style="display:flex;gap:0.8rem;margin-top:0.5rem;">
       <button class="btn-primary" onclick="closeModal('modal-participacion')">Guardar</button>
       <button class="btn-outline" onclick="closeModal('modal-participacion')">Cancelar</button>
@@ -729,6 +748,25 @@
     m.addEventListener('click', e => { if (e.target === m) closeModal(m.id); });
   });
 
+  // Desembolsos
+  function addDesembolso() {
+    const list = document.getElementById('desembolsos-list');
+    const row = document.createElement('div');
+    row.className = 'desembolso-row';
+    row.style.cssText = 'display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:0.5rem;align-items:center;';
+    row.innerHTML = `
+      <input type="text" placeholder="Descripción"/>
+      <input type="number" placeholder="Monto USD"/>
+      <input type="date"/>
+      <select style="width:110px;">
+        <option>Pendiente</option>
+        <option>Realizado</option>
+        <option>Próximo</option>
+      </select>
+    `;
+    list.appendChild(row);
+  }
+
   // Tabs
   function switchTab(btn, tabId) {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -738,6 +776,37 @@
       if (el) el.style.display = id === tabId ? 'block' : 'none';
     });
   }
+</script>
+
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+  const ADMIN_EMAIL = 'info.vila@gmail.com';
+
+  const app = initializeApp({
+    apiKey: "AIzaSyA2MX85SeAQH8OQr1HBSAOOifPmcH7B0FQ",
+    authDomain: "vila-desarrollos.firebaseapp.com",
+    projectId: "vila-desarrollos"
+  });
+
+  const auth = getAuth(app);
+
+  onAuthStateChanged(auth, user => {
+    if (!user) {
+      window.location.href = '/';
+    } else if (user.email.toLowerCase() !== ADMIN_EMAIL) {
+      // Not admin — redirect to investor
+      window.location.href = '/investor';
+    }
+  });
+
+  // Salir button
+  document.querySelector('.btn-outline').addEventListener('click', async () => {
+    await signOut(auth);
+    window.location.href = '/';
+  });
 </script>
 
 </body>

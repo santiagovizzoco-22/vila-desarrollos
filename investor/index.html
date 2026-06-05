@@ -218,6 +218,103 @@
     </div>
   </div>
 
+  <!-- Cronograma de desembolsos -->
+  <div class="block" style="margin-bottom:1rem;">
+    <div class="block-title">Cronograma de Inversión</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.8rem;margin-bottom:1.5rem;">
+      <div style="background:var(--off-white);padding:1.2rem;border:1px solid rgba(42,40,37,0.06);">
+        <div style="font-weight:200;font-size:0.5rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(42,40,37,0.38);margin-bottom:0.4rem;">Capital comprometido</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.6rem;">USD 80.000</div>
+      </div>
+      <div style="background:var(--off-white);padding:1.2rem;border:1px solid rgba(42,40,37,0.06);">
+        <div style="font-weight:200;font-size:0.5rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(42,40,37,0.38);margin-bottom:0.4rem;">Aportado a la fecha</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.6rem;color:var(--green);">USD 50.000</div>
+      </div>
+      <div style="background:var(--off-white);padding:1.2rem;border:1px solid rgba(42,40,37,0.06);">
+        <div style="font-weight:200;font-size:0.5rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(42,40,37,0.38);margin-bottom:0.4rem;">Próximo desembolso</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.4rem;color:var(--gold);">USD 15.000</div>
+        <div style="font-weight:200;font-size:0.58rem;color:rgba(42,40,37,0.35);margin-top:0.2rem;">15 Mar 2026</div>
+      </div>
+      <div style="background:var(--off-white);padding:1.2rem;border:1px solid rgba(42,40,37,0.06);">
+        <div style="font-weight:200;font-size:0.5rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(42,40,37,0.38);margin-bottom:0.4rem;">Capital pendiente</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.6rem;">USD 30.000</div>
+      </div>
+    </div>
+
+    <!-- Progress bar capital -->
+    <div style="margin-bottom:1.2rem;">
+      <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;">
+        <span style="font-weight:200;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(42,40,37,0.4);">Capital aportado</span>
+        <span style="font-weight:200;font-size:0.58rem;color:rgba(42,40,37,0.4);">62.5%</span>
+      </div>
+      <div style="height:3px;background:rgba(42,40,37,0.08);">
+        <div style="height:3px;background:var(--green);width:62.5%;"></div>
+      </div>
+    </div>
+
+    <!-- Tabla de desembolsos -->
+    <div style="font-weight:300;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(42,40,37,0.4);margin-bottom:0.8rem;">Detalle de desembolsos</div>
+    <div style="display:flex;flex-direction:column;gap:0;">
+
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid rgba(42,40,37,0.06);">
+        <div style="display:flex;align-items:center;gap:0.8rem;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;"></div>
+          <div>
+            <div style="font-weight:300;font-size:0.78rem;">Primer desembolso</div>
+            <div style="font-weight:200;font-size:0.6rem;color:rgba(42,40,37,0.4);">Oct 2024 · Inicio de obra</div>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;">USD 20.000</div>
+          <div style="font-weight:200;font-size:0.54rem;color:var(--green);">Realizado</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid rgba(42,40,37,0.06);">
+        <div style="display:flex;align-items:center;gap:0.8rem;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;"></div>
+          <div>
+            <div style="font-weight:300;font-size:0.78rem;">Segundo desembolso</div>
+            <div style="font-weight:200;font-size:0.6rem;color:rgba(42,40,37,0.4);">Ene 2026 · Estructura PB</div>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;">USD 30.000</div>
+          <div style="font-weight:200;font-size:0.54rem;color:var(--green);">Realizado</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid rgba(42,40,37,0.06);background:rgba(201,169,110,0.04);">
+        <div style="display:flex;align-items:center;gap:0.8rem;">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;"></div>
+          <div>
+            <div style="font-weight:300;font-size:0.78rem;">Tercer desembolso</div>
+            <div style="font-weight:200;font-size:0.6rem;color:rgba(42,40,37,0.4);">15 Mar 2026 · Mampostería</div>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;">USD 15.000</div>
+          <div style="font-weight:200;font-size:0.54rem;color:var(--gold);">Próximo</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:0.7rem 0;">
+        <div style="display:flex;align-items:center;gap:0.8rem;">
+          <div style="width:8px;height:8px;border-radius:50%;border:1.5px solid rgba(42,40,37,0.15);flex-shrink:0;"></div>
+          <div>
+            <div style="font-weight:300;font-size:0.78rem;">Cuarto desembolso</div>
+            <div style="font-weight:200;font-size:0.6rem;color:rgba(42,40,37,0.4);">Jun 2026 · Terminaciones</div>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;">USD 15.000</div>
+          <div style="font-weight:200;font-size:0.54rem;color:rgba(42,40,37,0.3);">Pendiente</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 
   <!-- Fotos del mes -->
   <div class="block" style="margin-bottom:1rem;padding:1.8rem 1.8rem 1.4rem;">
@@ -466,6 +563,38 @@
       document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     });
+  });
+</script>
+
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+  const app = initializeApp({
+    apiKey: "AIzaSyA2MX85SeAQH8OQr1HBSAOOifPmcH7B0FQ",
+    authDomain: "vila-desarrollos.firebaseapp.com",
+    projectId: "vila-desarrollos"
+  });
+
+  const auth = getAuth(app);
+
+  onAuthStateChanged(auth, user => {
+    if (!user) {
+      // Not logged in — redirect to landing
+      window.location.href = '/';
+    } else {
+      // Show user name in header
+      const nameEl = document.querySelector('.user-name');
+      if (nameEl) nameEl.textContent = user.displayName || user.email;
+    }
+  });
+
+  // Salir button
+  document.querySelector('.btn-sm').addEventListener('click', async () => {
+    const { signOut } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js");
+    await signOut(auth);
+    window.location.href = '/';
   });
 </script>
 
