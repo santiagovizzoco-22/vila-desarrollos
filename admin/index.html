@@ -26,45 +26,21 @@
       position:fixed; top:0; left:0; bottom:0;
       z-index:50;
     }
-    .sidebar-logo {
-      padding:1.8rem 1.5rem 1.4rem;
-      border-bottom:1px solid rgba(250,248,245,0.08);
-    }
+    .sidebar-logo { padding:1.8rem 1.5rem 1.4rem; border-bottom:1px solid rgba(250,248,245,0.08); }
     .sidebar-brand { font-family:"Cormorant Garamond",serif; font-weight:300; font-size:1.4rem; letter-spacing:0.15em; color:var(--warm-white); }
     .sidebar-sub { font-weight:200; font-size:0.52rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(250,248,245,0.35); margin-top:0.2rem; }
-
     .sidebar-nav { padding:1.2rem 0; flex:1; }
     .nav-section { font-weight:200; font-size:0.48rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(250,248,245,0.25); padding:0.8rem 1.5rem 0.4rem; }
-    .nav-item {
-      display:flex; align-items:center; gap:0.7rem;
-      padding:0.7rem 1.5rem; cursor:pointer;
-      font-weight:200; font-size:0.68rem; letter-spacing:0.12em;
-      color:rgba(250,248,245,0.5);
-      border-left:2px solid transparent;
-      transition:all 0.2s;
-    }
+    .nav-item { display:flex; align-items:center; gap:0.7rem; padding:0.7rem 1.5rem; cursor:pointer; font-weight:200; font-size:0.68rem; letter-spacing:0.12em; color:rgba(250,248,245,0.5); border-left:2px solid transparent; transition:all 0.2s; }
     .nav-item:hover { color:var(--warm-white); background:rgba(250,248,245,0.04); }
     .nav-item.active { color:var(--warm-white); border-left-color:var(--gold); background:rgba(250,248,245,0.06); }
     .nav-icon { font-size:0.9rem; width:16px; text-align:center; }
-
-    .sidebar-footer {
-      padding:1.2rem 1.5rem;
-      border-top:1px solid rgba(250,248,245,0.08);
-      font-weight:200; font-size:0.6rem; letter-spacing:0.12em;
-      color:rgba(250,248,245,0.3);
-    }
+    .sidebar-footer { padding:1.2rem 1.5rem; border-top:1px solid rgba(250,248,245,0.08); font-weight:200; font-size:0.6rem; letter-spacing:0.12em; color:rgba(250,248,245,0.3); }
 
     /* ── MAIN ── */
     .main-wrap { margin-left:var(--sidebar); flex:1; display:flex; flex-direction:column; min-height:100vh; }
 
-    /* Top bar */
-    .topbar {
-      background:var(--warm-white);
-      border-bottom:1px solid rgba(42,40,37,0.08);
-      padding:0.9rem 2rem;
-      display:flex; align-items:center; justify-content:space-between;
-      position:sticky; top:0; z-index:40;
-    }
+    .topbar { background:var(--warm-white); border-bottom:1px solid rgba(42,40,37,0.08); padding:0.9rem 2rem; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:40; }
     .topbar-title { font-family:"Cormorant Garamond",serif; font-weight:300; font-size:1.1rem; letter-spacing:0.1em; }
     .topbar-right { display:flex; align-items:center; gap:1rem; }
     .admin-badge { font-weight:200; font-size:0.54rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(201,169,110,0.3); padding:0.25rem 0.6rem; }
@@ -74,59 +50,35 @@
     .btn-outline:hover { border-color:var(--charcoal); color:var(--charcoal); }
     .btn-gold { background:var(--gold); border:none; font-family:Raleway,sans-serif; font-weight:200; font-size:0.58rem; letter-spacing:0.28em; text-transform:uppercase; color:white; padding:0.55rem 1.2rem; cursor:pointer; }
 
-    /* Content */
     .content { padding:2rem; flex:1; }
-
-    /* Panels */
     .panel { display:none; }
     .panel.active { display:block; }
 
-    /* Stats row */
     .stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:2rem; }
     .stat-card { background:var(--warm-white); border:1px solid rgba(42,40,37,0.08); padding:1.2rem; }
     .stat-label { font-weight:200; font-size:0.5rem; letter-spacing:0.28em; text-transform:uppercase; color:rgba(42,40,37,0.38); margin-bottom:0.4rem; }
     .stat-val { font-family:"Cormorant Garamond",serif; font-weight:300; font-size:1.7rem; }
     .stat-sub { font-weight:200; font-size:0.58rem; color:rgba(42,40,37,0.32); margin-top:0.15rem; }
 
-    /* Card */
     .card { background:var(--warm-white); border:1px solid rgba(42,40,37,0.08); padding:1.6rem; margin-bottom:1.2rem; }
     .card-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.2rem; padding-bottom:0.8rem; border-bottom:1px solid rgba(42,40,37,0.07); }
     .card-title { font-family:"Cormorant Garamond",serif; font-weight:300; font-size:1.05rem; letter-spacing:0.1em; }
     .card-actions { display:flex; gap:0.5rem; }
 
-    /* Form fields */
     .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
     .form-grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; }
     .field { margin-bottom:1rem; }
     .field-full { grid-column:1/-1; }
     label { display:block; font-weight:200; font-size:0.54rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(42,40,37,0.5); margin-bottom:0.35rem; }
-    input, select, textarea {
-      width:100%; padding:0.6rem 0.8rem;
-      border:1px solid rgba(42,40,37,0.15);
-      background:white; font-family:Raleway,sans-serif;
-      font-size:0.78rem; color:var(--charcoal); outline:none;
-      transition:border-color 0.2s;
-    }
+    input, select, textarea { width:100%; padding:0.6rem 0.8rem; border:1px solid rgba(42,40,37,0.15); background:white; font-family:Raleway,sans-serif; font-size:0.78rem; color:var(--charcoal); outline:none; transition:border-color 0.2s; }
     input:focus, select:focus, textarea:focus { border-color:var(--charcoal); }
     textarea { resize:vertical; min-height:80px; line-height:1.6; }
     .field-hint { font-weight:200; font-size:0.58rem; color:rgba(42,40,37,0.35); margin-top:0.3rem; }
 
-    /* Investor list */
     .investor-list { display:flex; flex-direction:column; gap:0; }
-    .investor-row {
-      display:flex; align-items:center; gap:1rem;
-      padding:1rem 1.2rem;
-      border-bottom:1px solid rgba(42,40,37,0.06);
-      transition:background 0.15s;
-    }
+    .investor-row { display:flex; align-items:center; gap:1rem; padding:1rem 1.2rem; border-bottom:1px solid rgba(42,40,37,0.06); transition:background 0.15s; }
     .investor-row:hover { background:var(--off-white); }
-    .investor-avatar {
-      width:36px; height:36px; border-radius:50%;
-      background:var(--off-white); border:1px solid rgba(42,40,37,0.1);
-      display:flex; align-items:center; justify-content:center;
-      font-family:"Cormorant Garamond",serif; font-weight:300; font-size:1rem;
-      color:rgba(42,40,37,0.4); flex-shrink:0;
-    }
+    .investor-avatar { width:36px; height:36px; border-radius:50%; background:var(--off-white); border:1px solid rgba(42,40,37,0.1); display:flex; align-items:center; justify-content:center; font-family:"Cormorant Garamond",serif; font-weight:300; font-size:1rem; color:rgba(42,40,37,0.4); flex-shrink:0; }
     .investor-info { flex:1; }
     .investor-name { font-weight:300; font-size:0.82rem; color:var(--charcoal); }
     .investor-email { font-weight:200; font-size:0.64rem; color:rgba(42,40,37,0.4); margin-top:0.1rem; }
@@ -141,31 +93,38 @@
     .btn-xs-gold { border-color:rgba(201,169,110,0.3); color:var(--gold); }
     .btn-xs-gold:hover { background:var(--gold); color:white; border-color:var(--gold); }
 
-    /* Status indicators */
     .dot-green { display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--green); margin-right:0.4rem; }
     .dot-gold  { display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--gold); margin-right:0.4rem; }
 
-    /* Rubros checklist */
     .rubros-section { margin-bottom:1rem; }
     .rubro-check-row { display:flex; align-items:center; gap:0.8rem; padding:0.55rem 0; border-bottom:1px solid rgba(42,40,37,0.05); }
     .rubro-check-row:last-child { border-bottom:none; }
     .rubro-check-name { flex:1; font-weight:200; font-size:0.76rem; color:rgba(42,40,37,0.7); }
-    .rubro-check-pct { font-family:"Cormorant Garamond",serif; font-weight:300; font-size:0.9rem; color:rgba(42,40,37,0.4); min-width:35px; text-align:right; }
     select.status-select { width:130px; font-size:0.64rem; padding:0.3rem 0.5rem; }
 
-    /* Section tabs */
     .tabs { display:flex; gap:0; margin-bottom:1.5rem; border-bottom:1px solid rgba(42,40,37,0.1); }
     .tab { font-weight:200; font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(42,40,37,0.4); padding:0.7rem 1.2rem; cursor:pointer; border-bottom:2px solid transparent; transition:all 0.2s; }
     .tab:hover { color:var(--charcoal); }
     .tab.active { color:var(--charcoal); border-bottom-color:var(--gold); }
 
-    /* Modal overlay */
     .modal-overlay { display:none; position:fixed; inset:0; background:rgba(20,18,14,0.5); z-index:200; align-items:center; justify-content:center; }
     .modal-overlay.open { display:flex; }
     .modal { background:var(--warm-white); width:min(680px,92vw); max-height:90vh; overflow-y:auto; padding:2rem; position:relative; }
     .modal-close { position:absolute; top:1rem; right:1.2rem; background:none; border:none; font-size:1.1rem; cursor:pointer; color:rgba(42,40,37,0.3); }
     .modal-title { font-family:"Cormorant Garamond",serif; font-weight:300; font-size:1.3rem; letter-spacing:0.1em; margin-bottom:0.4rem; }
     .modal-sub { font-weight:200; font-size:0.62rem; letter-spacing:0.15em; color:rgba(42,40,37,0.4); margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid rgba(42,40,37,0.08); }
+
+    /* Toast */
+    .toast { position:fixed; bottom:2rem; right:2rem; background:var(--charcoal); color:var(--warm-white); font-family:Raleway,sans-serif; font-weight:200; font-size:0.7rem; letter-spacing:0.15em; padding:0.8rem 1.4rem; z-index:999; opacity:0; transform:translateY(8px); transition:all 0.3s; pointer-events:none; }
+    .toast.show { opacity:1; transform:translateY(0); }
+    .toast.error { background:#8b3a3a; }
+
+    /* Loading state */
+    .loading-row { padding:2rem; text-align:center; font-family:"Cormorant Garamond",serif; font-weight:300; font-style:italic; color:rgba(42,40,37,0.3); }
+
+    /* Inactivity warning */
+    .inactivity-banner { display:none; position:fixed; top:0; left:0; right:0; background:#8b6914; color:white; font-family:Raleway,sans-serif; font-weight:200; font-size:0.68rem; letter-spacing:0.15em; text-align:center; padding:0.6rem; z-index:500; }
+    .inactivity-banner.show { display:block; }
 
     @media(max-width:900px) {
       aside { width:60px; }
@@ -179,6 +138,10 @@
 </head>
 <body>
 
+<div class="inactivity-banner" id="inactivityBanner">
+  Sesión por vencer por inactividad. <strong>Mové el mouse para continuar.</strong>
+</div>
+
 <!-- SIDEBAR -->
 <aside>
   <div class="sidebar-logo">
@@ -187,20 +150,20 @@
   </div>
   <nav class="sidebar-nav">
     <div class="nav-section">General</div>
-    <div class="nav-item active" onclick="showPanel('dashboard')">
+    <div class="nav-item active" onclick="showPanel('dashboard', this)">
       <span class="nav-icon">▦</span><span>Dashboard</span>
     </div>
-    <div class="nav-item" onclick="showPanel('inversores')">
+    <div class="nav-item" onclick="showPanel('inversores', this)">
       <span class="nav-icon">◉</span><span>Inversores</span>
     </div>
     <div class="nav-section">Proyectos</div>
-    <div class="nav-item" onclick="showPanel('informes')">
+    <div class="nav-item" onclick="showPanel('informes', this)">
       <span class="nav-icon">◈</span><span>Informes mensuales</span>
     </div>
-    <div class="nav-item" onclick="showPanel('proyectos')">
+    <div class="nav-item" onclick="showPanel('proyectos', this)">
       <span class="nav-icon">⬡</span><span>Proyectos</span>
     </div>
-    <div class="nav-item" onclick="showPanel('documentos')">
+    <div class="nav-item" onclick="showPanel('documentos', this)">
       <span class="nav-icon">◻</span><span>Documentos</span>
     </div>
   </nav>
@@ -209,13 +172,11 @@
 
 <!-- MAIN -->
 <div class="main-wrap">
-
-  <!-- TOPBAR -->
   <div class="topbar">
     <div class="topbar-title" id="topbarTitle">Dashboard</div>
     <div class="topbar-right">
       <span class="admin-badge">Admin</span>
-      <button class="btn-outline">Salir</button>
+      <button class="btn-outline" id="btnSalir">Salir</button>
     </div>
   </div>
 
@@ -226,82 +187,42 @@
       <div class="stats-row">
         <div class="stat-card">
           <div class="stat-label">Inversores activos</div>
-          <div class="stat-val">3</div>
-          <div class="stat-sub">2 con múltiples obras</div>
+          <div class="stat-val" id="stat-inversores">—</div>
+          <div class="stat-sub" id="stat-inversores-sub">cargando...</div>
         </div>
         <div class="stat-card">
           <div class="stat-label">Proyectos en curso</div>
-          <div class="stat-val">5</div>
-          <div class="stat-sub">Casa Olivo, PG 27/28, LC 95...</div>
+          <div class="stat-val" id="stat-proyectos">—</div>
+          <div class="stat-sub" id="stat-proyectos-sub">cargando...</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Informes pendientes</div>
-          <div class="stat-val" style="color:#c9a96e;">2</div>
-          <div class="stat-sub">Junio 2026</div>
+          <div class="stat-label">Informes este mes</div>
+          <div class="stat-val" id="stat-informes" style="color:#c9a96e;">—</div>
+          <div class="stat-sub" id="stat-informes-sub">cargando...</div>
         </div>
         <div class="stat-card">
           <div class="stat-label">Capital total</div>
-          <div class="stat-val" style="font-size:1.3rem;">USD 210K</div>
+          <div class="stat-val" id="stat-capital" style="font-size:1.3rem;">—</div>
           <div class="stat-sub">De inversores activos</div>
         </div>
       </div>
 
-      <!-- Quick actions -->
       <div class="card">
-        <div class="card-header">
-          <div class="card-title">Acciones rápidas</div>
-        </div>
+        <div class="card-header"><div class="card-title">Acciones rápidas</div></div>
         <div style="display:flex;gap:0.8rem;flex-wrap:wrap;">
-          <button class="btn-primary" onclick="showPanel('inversores');openModal('modal-inversor')">+ Nuevo inversor</button>
-          <button class="btn-gold" onclick="showPanel('informes');openModal('modal-informe')">+ Nuevo informe mensual</button>
-          <button class="btn-outline" onclick="showPanel('documentos')">Subir documento</button>
+          <button class="btn-primary" onclick="showPanel('inversores'); openModal('modal-inversor')">+ Nuevo inversor</button>
+          <button class="btn-gold" onclick="showPanel('informes'); openModal('modal-informe')">+ Nuevo informe mensual</button>
+          <button class="btn-outline" onclick="showPanel('documentos'); openModal('modal-doc')">Subir documento</button>
         </div>
       </div>
 
-      <!-- Inversores resumen -->
       <div class="card">
         <div class="card-header">
           <div class="card-title">Inversores</div>
           <button class="btn-xs" onclick="showPanel('inversores')">Ver todos</button>
         </div>
-        <div class="investor-list">
-          <div class="investor-row">
-            <div class="investor-avatar">L</div>
-            <div class="investor-info">
-              <div class="investor-name">Lucía Cuniolo</div>
-              <div class="investor-email">luciacuniolo8@gmail.com</div>
-              <div class="investor-tags">
-                <span class="tag tag-gold">PG 27/28</span>
-              </div>
-            </div>
-            <div>
-              <div class="investor-amount">USD 80.000</div>
-              <div class="investor-amount-sub">40% participación</div>
-            </div>
-            <div class="investor-actions">
-              <button class="btn-xs btn-xs-gold" onclick="showPanel('informes')">+ Informe</button>
-              <button class="btn-xs" onclick="openModal('modal-inversor')">Editar</button>
-            </div>
-          </div>
-          <div class="investor-row">
-            <div class="investor-avatar">M</div>
-            <div class="investor-info">
-              <div class="investor-name">Martín García</div>
-              <div class="investor-email">martin@gmail.com</div>
-              <div class="investor-tags">
-                <span class="tag tag-gold">Casa Olivo</span>
-                <span class="tag tag-gold">LC 95</span>
-              </div>
-            </div>
-            <div>
-              <div class="investor-amount">USD 130.000</div>
-              <div class="investor-amount-sub">2 proyectos</div>
-            </div>
-            <div class="investor-actions">
-              <button class="btn-xs btn-xs-gold" onclick="showPanel('informes')">+ Informe</button>
-              <button class="btn-xs" onclick="openModal('modal-inversor')">Editar</button>
-            </div>
-          </div>
+        <div class="investor-list" id="dashboard-inversores-list">
+          <div class="loading-row">Cargando inversores...</div>
         </div>
       </div>
     </div>
@@ -313,39 +234,8 @@
           <div class="card-title">Inversores</div>
           <button class="btn-primary" onclick="openModal('modal-inversor')">+ Nuevo inversor</button>
         </div>
-        <div class="investor-list">
-          <div class="investor-row">
-            <div class="investor-avatar">L</div>
-            <div class="investor-info">
-              <div class="investor-name">Lucía Cuniolo</div>
-              <div class="investor-email">luciacuniolo8@gmail.com</div>
-              <div class="investor-tags">
-                <span class="tag tag-gold">PG 27</span>
-                <span class="tag tag-gold">PG 28</span>
-              </div>
-            </div>
-            <div><div class="investor-amount">USD 80.000</div><div class="investor-amount-sub">40% · PG 27/28</div></div>
-            <div class="investor-actions">
-              <button class="btn-xs btn-xs-gold" onclick="openModal('modal-participacion')">+ Obra</button>
-              <button class="btn-xs">Editar</button>
-            </div>
-          </div>
-          <div class="investor-row">
-            <div class="investor-avatar">M</div>
-            <div class="investor-info">
-              <div class="investor-name">Martín García</div>
-              <div class="investor-email">martin@gmail.com</div>
-              <div class="investor-tags">
-                <span class="tag tag-gold">Casa Olivo</span>
-                <span class="tag tag-gold">LC 95</span>
-              </div>
-            </div>
-            <div><div class="investor-amount">USD 130.000</div><div class="investor-amount-sub">2 proyectos</div></div>
-            <div class="investor-actions">
-              <button class="btn-xs btn-xs-gold" onclick="openModal('modal-participacion')">+ Obra</button>
-              <button class="btn-xs">Editar</button>
-            </div>
-          </div>
+        <div class="investor-list" id="inversores-list">
+          <div class="loading-row">Cargando...</div>
         </div>
       </div>
     </div>
@@ -357,42 +247,17 @@
           <div class="card-title">Informes mensuales</div>
           <button class="btn-primary" onclick="openModal('modal-informe')">+ Nuevo informe</button>
         </div>
-
-        <div class="tabs">
-          <div class="tab active" onclick="switchTab(this,'tab-pg')">PG 27/28</div>
-          <div class="tab" onclick="switchTab(this,'tab-olivo')">Casa Olivo</div>
-          <div class="tab" onclick="switchTab(this,'tab-lc')">LC 95</div>
-          <div class="tab" onclick="switchTab(this,'tab-sc')">Santa Clara L60</div>
-          <div class="tab" onclick="switchTab(this,'tab-azz')">Azz 23</div>
+        <div class="tabs" id="informes-tabs">
+          <div class="tab active" data-proyecto="PG 27" onclick="switchInformesTab(this, 'PG 27')">PG 27</div>
+          <div class="tab" data-proyecto="PG 28" onclick="switchInformesTab(this, 'PG 28')">PG 28</div>
+          <div class="tab" data-proyecto="Casa Olivo" onclick="switchInformesTab(this, 'Casa Olivo')">Casa Olivo</div>
+          <div class="tab" data-proyecto="LC 95" onclick="switchInformesTab(this, 'LC 95')">LC 95</div>
+          <div class="tab" data-proyecto="Santa Clara L60" onclick="switchInformesTab(this, 'Santa Clara L60')">Santa Clara L60</div>
+          <div class="tab" data-proyecto="Azz 23" onclick="switchInformesTab(this, 'Azz 23')">Azz 23</div>
         </div>
-
-        <div id="tab-pg">
-          <div style="display:flex;flex-direction:column;gap:0.5rem;">
-            <div class="investor-row" style="cursor:pointer;" onclick="openModal('modal-informe')">
-              <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;flex:1;">Febrero 2026</div>
-              <div style="font-weight:200;font-size:0.64rem;color:rgba(42,40,37,0.4);">Lote 27: 9,78% · Lote 28: 8,93%</div>
-              <span class="tag tag-gold" style="margin-left:1rem;">Publicado</span>
-              <button class="btn-xs" style="margin-left:0.5rem;">Editar</button>
-            </div>
-            <div class="investor-row" style="cursor:pointer;">
-              <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;flex:1;">Enero 2026</div>
-              <div style="font-weight:200;font-size:0.64rem;color:rgba(42,40,37,0.4);">Lote 27: 5,12% · Lote 28: 4,88%</div>
-              <span class="tag" style="margin-left:1rem;">Publicado</span>
-              <button class="btn-xs" style="margin-left:0.5rem;">Editar</button>
-            </div>
-          </div>
+        <div id="informes-list">
+          <div class="loading-row">Cargando informes...</div>
         </div>
-        <div id="tab-olivo" style="display:none;">
-          <div class="investor-row">
-            <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;flex:1;">Junio 2025</div>
-            <div style="font-weight:200;font-size:0.64rem;color:rgba(42,40,37,0.4);">Avance: 100% · Terminada</div>
-            <span class="tag tag-gold" style="margin-left:1rem;">Publicado</span>
-            <button class="btn-xs" style="margin-left:0.5rem;">Editar</button>
-          </div>
-        </div>
-        <div id="tab-lc" style="display:none;"><div style="padding:2rem;text-align:center;font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;color:rgba(42,40,37,0.3);">Sin informes cargados</div></div>
-        <div id="tab-sc" style="display:none;"><div style="padding:2rem;text-align:center;font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;color:rgba(42,40,37,0.3);">Sin informes cargados</div></div>
-        <div id="tab-azz" style="display:none;"><div style="padding:2rem;text-align:center;font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;color:rgba(42,40,37,0.3);">Sin informes cargados</div></div>
       </div>
     </div>
 
@@ -403,23 +268,8 @@
           <div class="card-title">Documentos</div>
           <button class="btn-primary" onclick="openModal('modal-doc')">+ Subir documento</button>
         </div>
-        <div style="display:flex;flex-direction:column;gap:0.5rem;">
-          <div class="investor-row">
-            <span style="font-size:1.1rem;margin-right:0.5rem;">📄</span>
-            <div style="flex:1;">
-              <div style="font-weight:300;font-size:0.8rem;">Informe de Avance — Feb 2026 — PG 27/28</div>
-              <div style="font-weight:200;font-size:0.58rem;color:rgba(42,40,37,0.38);margin-top:0.1rem;">PDF · Informe mensual · Visible: Lucía Cuniolo</div>
-            </div>
-            <button class="btn-xs">Editar</button>
-          </div>
-          <div class="investor-row">
-            <span style="font-size:1.1rem;margin-right:0.5rem;">📋</span>
-            <div style="flex:1;">
-              <div style="font-weight:300;font-size:0.8rem;">Documentación Legal — Casa Olivo</div>
-              <div style="font-weight:200;font-size:0.58rem;color:rgba(42,40,37,0.38);margin-top:0.1rem;">PDF · Legal · Visible: Martín García</div>
-            </div>
-            <button class="btn-xs">Editar</button>
-          </div>
+        <div id="documentos-list">
+          <div class="loading-row">Cargando...</div>
         </div>
       </div>
     </div>
@@ -431,84 +281,8 @@
           <div class="card-title">Proyectos</div>
           <button class="btn-primary" onclick="openModal('modal-proyecto')">+ Nuevo proyecto</button>
         </div>
-
-        <div class="investor-list">
-
-          <div class="investor-row">
-            <div style="width:52px;height:52px;overflow:hidden;flex-shrink:0;background:var(--off-white);">
-              <div style="width:100%;height:100%;background:#d4cfc8;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.2rem;color:rgba(42,40,37,0.3);">CO</div>
-            </div>
-            <div class="investor-info">
-              <div class="investor-name">Casa Olivo</div>
-              <div class="investor-email">Manzanares, Santa Clara · 2026</div>
-              <div class="investor-tags"><span class="tag" style="color:var(--green);border-color:rgba(74,124,89,0.3);">Terminada</span></div>
-            </div>
-            <div style="font-weight:200;font-size:0.72rem;color:rgba(42,40,37,0.4);text-align:right;min-width:120px;">160 m² cubiertos</div>
-            <div class="investor-actions">
-              <button class="btn-xs" onclick="openModal('modal-proyecto')">Editar</button>
-            </div>
-          </div>
-
-          <div class="investor-row">
-            <div style="width:52px;height:52px;overflow:hidden;flex-shrink:0;background:var(--off-white);">
-              <div style="width:100%;height:100%;background:#d4cfc8;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.2rem;color:rgba(42,40,37,0.3);">SC</div>
-            </div>
-            <div class="investor-info">
-              <div class="investor-name">Santa Clara L60</div>
-              <div class="investor-email">Santa Clara, Manzanares · 2025</div>
-              <div class="investor-tags"><span class="tag tag-gold">En proyecto</span></div>
-            </div>
-            <div style="font-weight:200;font-size:0.72rem;color:rgba(42,40,37,0.4);text-align:right;min-width:120px;">177,20 m² totales</div>
-            <div class="investor-actions">
-              <button class="btn-xs" onclick="openModal('modal-proyecto')">Editar</button>
-            </div>
-          </div>
-
-          <div class="investor-row">
-            <div style="width:52px;height:52px;overflow:hidden;flex-shrink:0;background:var(--off-white);">
-              <div style="width:100%;height:100%;background:#d4cfc8;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.2rem;color:rgba(42,40,37,0.3);">LC</div>
-            </div>
-            <div class="investor-info">
-              <div class="investor-name">LC 95</div>
-              <div class="investor-email">Los Cardos, Tezevet · 2025</div>
-              <div class="investor-tags"><span class="tag tag-gold">En proyecto</span></div>
-            </div>
-            <div style="font-weight:200;font-size:0.72rem;color:rgba(42,40,37,0.4);text-align:right;min-width:120px;">302,41 m² totales</div>
-            <div class="investor-actions">
-              <button class="btn-xs" onclick="openModal('modal-proyecto')">Editar</button>
-            </div>
-          </div>
-
-          <div class="investor-row">
-            <div style="width:52px;height:52px;overflow:hidden;flex-shrink:0;background:var(--off-white);">
-              <div style="width:100%;height:100%;background:#d4cfc8;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.2rem;color:rgba(42,40,37,0.3);">PG</div>
-            </div>
-            <div class="investor-info">
-              <div class="investor-name">PG 28</div>
-              <div class="investor-email">Pilar Golf, Pilar · 2025</div>
-              <div class="investor-tags"><span class="tag tag-gold">En proyecto</span></div>
-            </div>
-            <div style="font-weight:200;font-size:0.72rem;color:rgba(42,40,37,0.4);text-align:right;min-width:120px;">—</div>
-            <div class="investor-actions">
-              <button class="btn-xs" onclick="openModal('modal-proyecto')">Editar</button>
-            </div>
-          </div>
-
-          <div class="investor-row">
-            <div style="width:52px;height:52px;overflow:hidden;flex-shrink:0;background:var(--off-white);">
-              <div style="width:100%;height:100%;background:#d4cfc8;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.2rem;color:rgba(42,40,37,0.3);">AZ</div>
-            </div>
-            <div class="investor-info">
-              <div class="investor-name">Azz 23</div>
-              <div class="investor-email">Azzurra, Pilar · 2025</div>
-              <div class="investor-tags"><span class="tag tag-gold">En proyecto</span></div>
-            </div>
-            <div style="font-weight:200;font-size:0.72rem;color:rgba(42,40,37,0.4);text-align:right;min-width:120px;">—</div>
-            <div class="investor-actions">
-              <button class="btn-xs" onclick="openModal('modal-proyecto')">Editar</button>
-            </div>
-          </div>
-
+        <div class="investor-list" id="proyectos-list">
+          <div class="loading-row">Cargando...</div>
         </div>
       </div>
     </div>
@@ -517,18 +291,21 @@
 </div><!-- /main-wrap -->
 
 
-<!-- ══ MODAL: Nuevo Inversor ══ -->
+<!-- ══ MODAL: Nuevo / Editar Inversor ══ -->
 <div class="modal-overlay" id="modal-inversor">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-inversor')">✕</button>
-    <div class="modal-title">Nuevo Inversor</div>
+    <div class="modal-title" id="modal-inversor-title">Nuevo Inversor</div>
     <div class="modal-sub">Datos del inversor · Podrás asignarle obras después</div>
+    <input type="hidden" id="inversor-edit-id"/>
     <div class="form-grid">
-      <div class="field"><label>Nombre completo</label><input type="text" placeholder="Ej: Lucía Cuniolo"/></div>
-      <div class="field"><label>Email (Google)</label><input type="email" placeholder="lucia@gmail.com"/></div>
+      <div class="field"><label>Nombre completo</label><input type="text" id="inv-nombre" placeholder="Ej: Lucía Cuniolo"/></div>
+      <div class="field"><label>Email (Google)</label><input type="email" id="inv-email" placeholder="lucia@gmail.com"/></div>
     </div>
+    <div class="field"><label>Teléfono</label><input type="text" id="inv-telefono" placeholder="+54 9 11 1234-5678"/></div>
+    <div class="field"><label>Notas internas</label><textarea id="inv-notas" placeholder="Cualquier dato relevante..."></textarea></div>
     <div style="margin-top:0.5rem;display:flex;gap:0.8rem;">
-      <button class="btn-primary" onclick="closeModal('modal-inversor')">Guardar inversor</button>
+      <button class="btn-primary" onclick="guardarInversor()">Guardar inversor</button>
       <button class="btn-outline" onclick="closeModal('modal-inversor')">Cancelar</button>
     </div>
   </div>
@@ -542,17 +319,18 @@
     <div class="modal-sub">Asignás una obra y el capital invertido del inversor</div>
     <div class="form-grid">
       <div class="field"><label>Inversor</label>
-        <select><option>Lucía Cuniolo</option><option>Martín García</option></select>
+        <select id="part-inversor"></select>
       </div>
       <div class="field"><label>Proyecto</label>
-        <select><option>Casa Olivo</option><option>Santa Clara L60</option><option>LC 95</option><option>PG 27</option><option>PG 28</option><option>Azz 23</option></select>
+        <select id="part-proyecto">
+          <option>Casa Olivo</option><option>Santa Clara L60</option><option>LC 95</option>
+          <option>PG 27</option><option>PG 28</option><option>Azz 23</option>
+        </select>
       </div>
-      <div class="field"><label>Capital invertido (USD)</label><input type="number" placeholder="50000"/></div>
-      <div class="field"><label>Participación (%)</label><input type="number" placeholder="35"/></div>
+      <div class="field"><label>Capital invertido (USD)</label><input type="number" id="part-capital" placeholder="50000"/></div>
+      <div class="field"><label>Participación (%)</label><input type="number" id="part-pct" placeholder="35"/></div>
     </div>
-    <div class="field field-full"><label>Notas</label><textarea placeholder="Condiciones especiales, fechas de acuerdo, etc."></textarea></div>
-    
-    <!-- Cronograma de desembolsos -->
+    <div class="field"><label>Notas</label><textarea id="part-notas" placeholder="Condiciones especiales, fechas de acuerdo, etc."></textarea></div>
     <div style="margin-bottom:1rem;">
       <label style="margin-bottom:0.8rem;display:block;">Cronograma de desembolsos</label>
       <div id="desembolsos-list" style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:0.8rem;">
@@ -560,18 +338,13 @@
           <input type="text" placeholder="Descripción (ej: Inicio de obra)"/>
           <input type="number" placeholder="Monto USD"/>
           <input type="date"/>
-          <select style="width:110px;">
-            <option>Pendiente</option>
-            <option>Realizado</option>
-            <option>Próximo</option>
-          </select>
+          <select style="width:110px;"><option>Pendiente</option><option>Realizado</option><option>Próximo</option></select>
         </div>
       </div>
       <button onclick="addDesembolso()" style="background:none;border:1px dashed rgba(42,40,37,0.2);font-family:Raleway,sans-serif;font-weight:200;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(42,40,37,0.4);padding:0.5rem 1rem;cursor:pointer;width:100%;">+ Agregar desembolso</button>
     </div>
-
     <div style="display:flex;gap:0.8rem;margin-top:0.5rem;">
-      <button class="btn-primary" onclick="closeModal('modal-participacion')">Guardar</button>
+      <button class="btn-primary" onclick="guardarParticipacion()">Guardar</button>
       <button class="btn-outline" onclick="closeModal('modal-participacion')">Cancelar</button>
     </div>
   </div>
@@ -583,15 +356,19 @@
     <button class="modal-close" onclick="closeModal('modal-informe')">✕</button>
     <div class="modal-title">Nuevo informe mensual</div>
     <div class="modal-sub">Completá los datos del período · Todo lo que cargues acá se refleja en el portal del inversor</div>
+    <input type="hidden" id="informe-edit-id"/>
 
     <div class="form-grid">
       <div class="field"><label>Proyecto</label>
-        <select><option>PG 27</option><option>PG 28</option><option>Casa Olivo</option><option>Santa Clara L60</option><option>LC 95</option><option>Azz 23</option></select>
+        <select id="inf-proyecto">
+          <option>PG 27</option><option>PG 28</option><option>Casa Olivo</option>
+          <option>Santa Clara L60</option><option>LC 95</option><option>Azz 23</option>
+        </select>
       </div>
-      <div class="field"><label>Período</label><input type="month" value="2026-03"/></div>
-      <div class="field"><label>% Avance acumulado</label><input type="number" placeholder="9.78" step="0.01"/></div>
+      <div class="field"><label>Período</label><input type="month" id="inf-periodo" value="2026-06"/></div>
+      <div class="field"><label>% Avance acumulado</label><input type="number" id="inf-avance" placeholder="9.78" step="0.01"/></div>
       <div class="field"><label>Etapa actual</label>
-        <select>
+        <select id="inf-etapa">
           <option>Fundación hormigonada</option>
           <option>Estructura sobre PB</option>
           <option>Estructura azotea</option>
@@ -602,49 +379,46 @@
       </div>
     </div>
 
-    <!-- Hitos -->
     <div style="margin-bottom:1rem;">
       <label style="margin-bottom:0.6rem;display:block;">Hitos completados</label>
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-        <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;font-weight:200;text-transform:none;letter-spacing:0;cursor:pointer;"><input type="checkbox" checked/> Fundación</label>
-        <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;font-weight:200;text-transform:none;letter-spacing:0;cursor:pointer;"><input type="checkbox"/> Estructura PB</label>
-        <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;font-weight:200;text-transform:none;letter-spacing:0;cursor:pointer;"><input type="checkbox"/> Estructura Azotea</label>
-        <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;font-weight:200;text-transform:none;letter-spacing:0;cursor:pointer;"><input type="checkbox"/> Obra Gris</label>
-        <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;font-weight:200;text-transform:none;letter-spacing:0;cursor:pointer;"><input type="checkbox"/> Entrega</label>
+        <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;font-weight:200;text-transform:none;letter-spacing:0;cursor:pointer;"><input type="checkbox" id="hito-fundacion"/> Fundación</label>
+        <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;font-weight:200;text-transform:none;letter-spacing:0;cursor:pointer;"><input type="checkbox" id="hito-estructura-pb"/> Estructura PB</label>
+        <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;font-weight:200;text-transform:none;letter-spacing:0;cursor:pointer;"><input type="checkbox" id="hito-estructura-az"/> Estructura Azotea</label>
+        <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;font-weight:200;text-transform:none;letter-spacing:0;cursor:pointer;"><input type="checkbox" id="hito-obra-gris"/> Obra Gris</label>
+        <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;font-weight:200;text-transform:none;letter-spacing:0;cursor:pointer;"><input type="checkbox" id="hito-entrega"/> Entrega</label>
       </div>
     </div>
 
-    <!-- Rubros -->
     <div style="margin-bottom:1rem;">
       <label style="margin-bottom:0.6rem;display:block;">Estado de rubros</label>
       <div class="rubros-section">
-        <div class="rubro-check-row"><span class="rubro-check-name">Trabajos Preliminares (3%)</span><select class="status-select"><option>Concluido</option><option>En ejecución</option><option>Pendiente</option></select></div>
-        <div class="rubro-check-row"><span class="rubro-check-name">Estructura H°A° (22%)</span><select class="status-select"><option>En ejecución</option><option selected>En ejecución</option><option>Pendiente</option></select></div>
-        <div class="rubro-check-row"><span class="rubro-check-name">Mampostería (11%)</span><select class="status-select"><option>Concluido</option><option>En ejecución</option><option selected>Pendiente</option></select></div>
-        <div class="rubro-check-row"><span class="rubro-check-name">Instalación Sanitaria (7%)</span><select class="status-select"><option>Concluido</option><option>En ejecución</option><option selected>Pendiente</option></select></div>
-        <div class="rubro-check-row"><span class="rubro-check-name">Instalación Eléctrica (7%)</span><select class="status-select"><option>Concluido</option><option>En ejecución</option><option selected>Pendiente</option></select></div>
-        <div class="rubro-check-row"><span class="rubro-check-name">Revoques (9%)</span><select class="status-select"><option>Concluido</option><option>En ejecución</option><option selected>Pendiente</option></select></div>
-        <div class="rubro-check-row"><span class="rubro-check-name">Carpinterías (8%)</span><select class="status-select"><option>Concluido</option><option>En ejecución</option><option selected>Pendiente</option></select></div>
-        <div class="rubro-check-row"><span class="rubro-check-name">Terminaciones (10%)</span><select class="status-select"><option>Concluido</option><option>En ejecución</option><option selected>Pendiente</option></select></div>
+        <div class="rubro-check-row"><span class="rubro-check-name">Trabajos Preliminares (3%)</span><select class="status-select" data-rubro="Trabajos Preliminares"><option>Pendiente</option><option>En ejecución</option><option>Concluido</option></select></div>
+        <div class="rubro-check-row"><span class="rubro-check-name">Estructura H°A° (22%)</span><select class="status-select" data-rubro="Estructura"><option>Pendiente</option><option>En ejecución</option><option>Concluido</option></select></div>
+        <div class="rubro-check-row"><span class="rubro-check-name">Mampostería (11%)</span><select class="status-select" data-rubro="Mampostería"><option>Pendiente</option><option>En ejecución</option><option>Concluido</option></select></div>
+        <div class="rubro-check-row"><span class="rubro-check-name">Instalación Sanitaria (7%)</span><select class="status-select" data-rubro="Sanitaria"><option>Pendiente</option><option>En ejecución</option><option>Concluido</option></select></div>
+        <div class="rubro-check-row"><span class="rubro-check-name">Instalación Eléctrica (7%)</span><select class="status-select" data-rubro="Eléctrica"><option>Pendiente</option><option>En ejecución</option><option>Concluido</option></select></div>
+        <div class="rubro-check-row"><span class="rubro-check-name">Revoques (9%)</span><select class="status-select" data-rubro="Revoques"><option>Pendiente</option><option>En ejecución</option><option>Concluido</option></select></div>
+        <div class="rubro-check-row"><span class="rubro-check-name">Carpinterías (8%)</span><select class="status-select" data-rubro="Carpinterías"><option>Pendiente</option><option>En ejecución</option><option>Concluido</option></select></div>
+        <div class="rubro-check-row"><span class="rubro-check-name">Terminaciones (10%)</span><select class="status-select" data-rubro="Terminaciones"><option>Pendiente</option><option>En ejecución</option><option>Concluido</option></select></div>
       </div>
     </div>
 
-    <div class="field"><label>A. Compras del período</label><textarea placeholder="Materiales de corralón: hierros, polietileno...&#10;Maderas para encofrado...&#10;Hormigón estructural..."></textarea></div>
-    <div class="field"><label>B. Próximos pasos</label><textarea placeholder="Encofrado y armadura de columnas...&#10;Tendidos eléctricos sobre PB..."></textarea></div>
-    <div class="field"><label>Mensaje del Director de Obra</label><textarea style="min-height:100px;" placeholder="Cerramos el mes con..."></textarea></div>
-    <div class="field"><label>Director de Obra</label><input type="text" placeholder="Nombre del director" value="Martín Marzinelli"/></div>
+    <div class="field"><label>A. Compras del período</label><textarea id="inf-compras" placeholder="Materiales de corralón: hierros, polietileno..."></textarea></div>
+    <div class="field"><label>B. Próximos pasos</label><textarea id="inf-proximos" placeholder="Encofrado y armadura de columnas..."></textarea></div>
+    <div class="field"><label>Mensaje del Director de Obra</label><textarea id="inf-mensaje" style="min-height:100px;" placeholder="Cerramos el mes con..."></textarea></div>
+    <div class="field"><label>Director de Obra</label><input type="text" id="inf-director" placeholder="Nombre del director" value="Martín Marzinelli"/></div>
 
-    <!-- Fotos y docs -->
     <div class="form-grid">
-      <div class="field"><label>Fotos del mes (links Drive, uno por línea)</label><textarea placeholder="https://drive.google.com/...&#10;https://drive.google.com/..."></textarea></div>
-      <div class="field"><label>Link PDF del informe (Drive)</label><input type="text" placeholder="https://drive.google.com/..."/>
+      <div class="field"><label>Fotos del mes (links Drive, uno por línea)</label><textarea id="inf-fotos" placeholder="https://drive.google.com/..."></textarea></div>
+      <div class="field"><label>Link PDF del informe (Drive)</label><input type="text" id="inf-pdf" placeholder="https://drive.google.com/..."/>
         <div class="field-hint">💡 Drive → Compartir → Cualquiera con el link → Copiar</div>
       </div>
     </div>
 
     <div style="display:flex;gap:0.8rem;margin-top:1rem;">
-      <button class="btn-primary" onclick="closeModal('modal-informe')">Publicar informe</button>
-      <button class="btn-outline" onclick="closeModal('modal-informe')">Guardar borrador</button>
+      <button class="btn-primary" onclick="guardarInforme('publicado')">Publicar informe</button>
+      <button class="btn-outline" onclick="guardarInforme('borrador')">Guardar borrador</button>
       <button class="btn-outline" onclick="closeModal('modal-informe')">Cancelar</button>
     </div>
   </div>
@@ -657,27 +431,26 @@
     <div class="modal-title">Subir documento</div>
     <div class="modal-sub">El documento será visible para los inversores seleccionados</div>
     <div class="form-grid">
-      <div class="field"><label>Nombre del documento</label><input type="text" placeholder="Documentación Legal — Casa Olivo"/></div>
+      <div class="field"><label>Nombre del documento</label><input type="text" id="doc-nombre" placeholder="Documentación Legal — Casa Olivo"/></div>
       <div class="field"><label>Tipo</label>
-        <select><option>Informe mensual</option><option>Informe trimestral de mercado</option><option>Documentación legal</option><option>Otro</option></select>
+        <select id="doc-tipo"><option>Informe mensual</option><option>Informe trimestral de mercado</option><option>Documentación legal</option><option>Otro</option></select>
       </div>
       <div class="field"><label>Proyecto</label>
-        <select><option>Todos</option><option>Casa Olivo</option><option>LC 95</option><option>PG 27/28</option><option>Santa Clara L60</option><option>Azz 23</option></select>
+        <select id="doc-proyecto"><option>Todos</option><option>Casa Olivo</option><option>LC 95</option><option>PG 27</option><option>PG 28</option><option>Santa Clara L60</option><option>Azz 23</option></select>
       </div>
       <div class="field"><label>Visible para</label>
-        <select><option>Todos los inversores</option><option>Lucía Cuniolo</option><option>Martín García</option></select>
+        <select id="doc-visible"><option value="todos">Todos los inversores</option></select>
       </div>
     </div>
-    <div class="field"><label>Link de Google Drive</label><input type="text" placeholder="https://drive.google.com/..."/>
+    <div class="field"><label>Link de Google Drive</label><input type="text" id="doc-link" placeholder="https://drive.google.com/..."/>
       <div class="field-hint">💡 Drive → Compartir → Cualquiera con el link → Copiar link</div>
     </div>
     <div style="display:flex;gap:0.8rem;margin-top:0.5rem;">
-      <button class="btn-primary" onclick="closeModal('modal-doc')">Guardar</button>
+      <button class="btn-primary" onclick="guardarDocumento()">Guardar</button>
       <button class="btn-outline" onclick="closeModal('modal-doc')">Cancelar</button>
     </div>
   </div>
 </div>
-
 
 <!-- ══ MODAL: Proyecto ══ -->
 <div class="modal-overlay" id="modal-proyecto">
@@ -685,57 +458,53 @@
     <button class="modal-close" onclick="closeModal('modal-proyecto')">✕</button>
     <div class="modal-title">Proyecto</div>
     <div class="modal-sub">Información que aparece en el showroom público del sitio</div>
-
+    <input type="hidden" id="proyecto-edit-id"/>
     <div class="form-grid">
-      <div class="field"><label>Nombre del proyecto</label><input type="text" placeholder="Ej: Casa Olivo"/></div>
+      <div class="field"><label>Nombre del proyecto</label><input type="text" id="proy-nombre" placeholder="Ej: Casa Olivo"/></div>
       <div class="field"><label>Estado</label>
-        <select>
-          <option>En proyecto</option>
-          <option>En obra</option>
-          <option>Terminada</option>
-          <option>Vendida</option>
-        </select>
+        <select id="proy-estado"><option>En proyecto</option><option>En obra</option><option>Terminada</option><option>Vendida</option></select>
       </div>
-      <div class="field"><label>Ubicación</label><input type="text" placeholder="Ej: Manzanares, Santa Clara"/></div>
-      <div class="field"><label>Año</label><input type="number" placeholder="2026"/></div>
-      <div class="field"><label>Superficie cubierta (m²)</label><input type="number" placeholder="160"/></div>
-      <div class="field"><label>Superficie semi cubierta (m²)</label><input type="number" placeholder="41"/></div>
-      <div class="field"><label>Lote (m²)</label><input type="number" placeholder="640"/></div>
+      <div class="field"><label>Ubicación</label><input type="text" id="proy-ubicacion" placeholder="Ej: Manzanares, Santa Clara"/></div>
+      <div class="field"><label>Año</label><input type="number" id="proy-anio" placeholder="2026"/></div>
+      <div class="field"><label>Superficie cubierta (m²)</label><input type="number" id="proy-sup-cub" placeholder="160"/></div>
+      <div class="field"><label>Superficie semi cubierta (m²)</label><input type="number" id="proy-sup-semi" placeholder="41"/></div>
+      <div class="field"><label>Lote (m²)</label><input type="number" id="proy-lote" placeholder="640"/></div>
       <div class="field"><label>Plantas</label>
-        <select><option>1 planta</option><option>2 plantas</option></select>
+        <select id="proy-plantas"><option>1 planta</option><option>2 plantas</option></select>
       </div>
     </div>
-
-    <div class="field"><label>Programa</label><input type="text" placeholder="Ej: Living-comedor-cocina, 2 dormitorios, 2 baños, galería, patio, cochera"/></div>
-
-    <div class="field"><label>Memoria descriptiva</label>
-      <textarea style="min-height:120px;" placeholder="El proyecto nace de..."></textarea>
-    </div>
-
+    <div class="field"><label>Programa</label><input type="text" id="proy-programa" placeholder="Ej: Living-comedor-cocina, 2 dormitorios, 2 baños, galería, patio, cochera"/></div>
+    <div class="field"><label>Memoria descriptiva</label><textarea id="proy-memoria" style="min-height:120px;" placeholder="El proyecto nace de..."></textarea></div>
     <div class="field"><label>Fotos / Renders (links de Drive, uno por línea)</label>
-      <textarea placeholder="https://drive.google.com/...&#10;https://drive.google.com/..."></textarea>
+      <textarea id="proy-fotos" placeholder="https://drive.google.com/..."></textarea>
       <div class="field-hint">💡 La primera foto es la que aparece como portada en el grid</div>
     </div>
-
     <div style="display:flex;gap:0.8rem;margin-top:0.5rem;">
-      <button class="btn-primary" onclick="closeModal('modal-proyecto')">Guardar proyecto</button>
+      <button class="btn-primary" onclick="guardarProyecto()">Guardar proyecto</button>
       <button class="btn-outline" onclick="closeModal('modal-proyecto')">Cancelar</button>
     </div>
   </div>
 </div>
 
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
 <script>
-  // Panel navigation
-  function showPanel(id) {
+  // ── Panel navigation ──
+  function showPanel(id, navEl) {
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
     document.getElementById('panel-' + id).classList.add('active');
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    event.currentTarget.classList.add('active');
+    if (navEl) navEl.classList.add('active');
     const titles = { dashboard:'Dashboard', inversores:'Inversores', proyectos:'Proyectos', informes:'Informes mensuales', documentos:'Documentos' };
     document.getElementById('topbarTitle').textContent = titles[id] || id;
+    if (id === 'inversores') renderInversores();
+    if (id === 'informes') renderInformes(currentProyectoTab);
+    if (id === 'documentos') renderDocumentos();
+    if (id === 'proyectos') renderProyectos();
   }
 
-  // Modal
+  // ── Modals ──
   function openModal(id) {
     document.getElementById(id).classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -748,40 +517,64 @@
     m.addEventListener('click', e => { if (e.target === m) closeModal(m.id); });
   });
 
-  // Desembolsos
+  // ── Toast ──
+  function toast(msg, isError = false) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast' + (isError ? ' error' : '');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  // ── Desembolsos ──
   function addDesembolso() {
     const list = document.getElementById('desembolsos-list');
     const row = document.createElement('div');
     row.className = 'desembolso-row';
     row.style.cssText = 'display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:0.5rem;align-items:center;';
-    row.innerHTML = `
-      <input type="text" placeholder="Descripción"/>
-      <input type="number" placeholder="Monto USD"/>
-      <input type="date"/>
-      <select style="width:110px;">
-        <option>Pendiente</option>
-        <option>Realizado</option>
-        <option>Próximo</option>
-      </select>
-    `;
+    row.innerHTML = `<input type="text" placeholder="Descripción"/><input type="number" placeholder="Monto USD"/><input type="date"/><select style="width:110px;"><option>Pendiente</option><option>Realizado</option><option>Próximo</option></select>`;
     list.appendChild(row);
   }
 
-  // Tabs
-  function switchTab(btn, tabId) {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  // ── Informes tab ──
+  let currentProyectoTab = 'PG 27';
+  function switchInformesTab(btn, proyecto) {
+    document.querySelectorAll('#informes-tabs .tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
-    ['tab-pg','tab-olivo','tab-lc','tab-sc','tab-azz'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.style.display = id === tabId ? 'block' : 'none';
-    });
+    currentProyectoTab = proyecto;
+    renderInformes(proyecto);
   }
-</script>
 
+  // ── Inactivity logout (30 min) ──
+  let inactivityTimer, warningTimer;
+  const LOGOUT_MS = 30 * 60 * 1000;
+  const WARNING_MS = 27 * 60 * 1000;
+  function resetInactivity() {
+    clearTimeout(inactivityTimer);
+    clearTimeout(warningTimer);
+    document.getElementById('inactivityBanner').classList.remove('show');
+    warningTimer = setTimeout(() => {
+      document.getElementById('inactivityBanner').classList.add('show');
+    }, WARNING_MS);
+    inactivityTimer = setTimeout(() => {
+      if (window._firebaseAuth) {
+        window._firebaseAuth.signOut().then(() => { window.location.href = '/'; });
+      }
+    }, LOGOUT_MS);
+  }
+  ['mousemove','keydown','click','scroll','touchstart'].forEach(ev => document.addEventListener(ev, resetInactivity, { passive:true }));
+  resetInactivity();
+</script>
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import {
+    getFirestore, collection, doc,
+    addDoc, setDoc, updateDoc, deleteDoc,
+    getDocs, getDoc, query, where, orderBy,
+    serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
   const ADMIN_EMAIL = 'viladesarrollos@gmail.com';
 
@@ -792,22 +585,564 @@
   });
 
   const auth = getAuth(app);
+  const db = getFirestore(app);
+  window._firebaseAuth = auth;
 
+  // ── Auth guard ──
   onAuthStateChanged(auth, user => {
-    if (!user) {
-      window.location.href = '/';
-    } else if (user.email.toLowerCase() !== ADMIN_EMAIL) {
-      // Not admin — redirect to investor
-      window.location.href = '/investor';
-    }
+    if (!user) { window.location.href = '/'; return; }
+    if (user.email.toLowerCase() !== ADMIN_EMAIL) { window.location.href = '/investor'; return; }
+    initAdmin();
   });
 
-  // Salir button
-  document.querySelector('.btn-outline').addEventListener('click', async () => {
+  document.getElementById('btnSalir').addEventListener('click', async () => {
     await signOut(auth);
     window.location.href = '/';
   });
-</script>
 
+  // ══════════════════════════════════════════
+  //  INIT — carga inicial
+  // ══════════════════════════════════════════
+  async function initAdmin() {
+    await Promise.all([
+      loadDashboardStats(),
+      renderDashboardInversores(),
+    ]);
+  }
+
+  // ══════════════════════════════════════════
+  //  DASHBOARD STATS
+  // ══════════════════════════════════════════
+  async function loadDashboardStats() {
+    try {
+      // Inversores
+      const invSnap = await getDocs(collection(db, 'inversores'));
+      document.getElementById('stat-inversores').textContent = invSnap.size;
+      document.getElementById('stat-inversores-sub').textContent = invSnap.size === 1 ? '1 inversor' : `${invSnap.size} inversores`;
+
+      // Capital total y proyectos únicos
+      let capital = 0;
+      const proyectosSet = new Set();
+      const partSnap = await getDocs(collection(db, 'participaciones'));
+      partSnap.forEach(d => {
+        capital += Number(d.data().capital || 0);
+        if (d.data().proyecto) proyectosSet.add(d.data().proyecto);
+      });
+      const capStr = capital >= 1000 ? `USD ${(capital/1000).toFixed(0)}K` : `USD ${capital.toLocaleString()}`;
+      document.getElementById('stat-capital').textContent = capStr;
+
+      // Proyectos
+      const proySnap = await getDocs(collection(db, 'proyectos'));
+      const totalProy = proySnap.size || 5;
+      document.getElementById('stat-proyectos').textContent = totalProy;
+      document.getElementById('stat-proyectos-sub').textContent = 'proyectos cargados';
+
+      // Informes este mes
+      const now = new Date();
+      const mesActual = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+      const infSnap = await getDocs(query(collection(db, 'informes'), where('periodo', '==', mesActual)));
+      document.getElementById('stat-informes').textContent = infSnap.size;
+      document.getElementById('stat-informes-sub').textContent = `publicados ${now.toLocaleString('es-AR',{month:'long'})} ${now.getFullYear()}`;
+    } catch(e) {
+      console.error('Stats error:', e);
+    }
+  }
+
+  // ══════════════════════════════════════════
+  //  INVERSORES
+  // ══════════════════════════════════════════
+  async function getInversores() {
+    const snap = await getDocs(collection(db, 'inversores'));
+    return snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  }
+
+  async function renderDashboardInversores() {
+    const list = document.getElementById('dashboard-inversores-list');
+    try {
+      const inversores = await getInversores();
+      if (inversores.length === 0) {
+        list.innerHTML = '<div class="loading-row">Sin inversores cargados aún.</div>';
+        return;
+      }
+      list.innerHTML = inversores.map(inv => inversorRowHTML(inv, false)).join('');
+    } catch(e) {
+      list.innerHTML = '<div class="loading-row">Error cargando inversores.</div>';
+    }
+  }
+
+  window.renderInversores = async function() {
+    const list = document.getElementById('inversores-list');
+    list.innerHTML = '<div class="loading-row">Cargando...</div>';
+    try {
+      const inversores = await getInversores();
+      if (inversores.length === 0) {
+        list.innerHTML = '<div class="loading-row">Sin inversores. Usá "+ Nuevo inversor" para agregar.</div>';
+        return;
+      }
+      // Para cada inversor, traer sus participaciones
+      const partSnap = await getDocs(collection(db, 'participaciones'));
+      const partMap = {};
+      partSnap.forEach(d => {
+        const inv = d.data().inversorId;
+        if (!partMap[inv]) partMap[inv] = [];
+        partMap[inv].push(d.data());
+      });
+      list.innerHTML = inversores.map(inv => {
+        const parts = partMap[inv.id] || [];
+        return inversorRowHTML(inv, true, parts);
+      }).join('');
+      // También actualizar el select del modal participacion
+      populateInversorSelect(inversores);
+      // Y el select de documentos
+      populateDocVisibleSelect(inversores);
+    } catch(e) {
+      list.innerHTML = '<div class="loading-row">Error al cargar inversores.</div>';
+    }
+  };
+
+  function inversorRowHTML(inv, showActions, participaciones = []) {
+    const inicial = (inv.nombre || '?')[0].toUpperCase();
+    const tags = participaciones.map(p => `<span class="tag tag-gold">${p.proyecto}</span>`).join('');
+    const totalCapital = participaciones.reduce((s, p) => s + Number(p.capital||0), 0);
+    const capStr = totalCapital > 0 ? `USD ${totalCapital.toLocaleString('es-AR')}` : '—';
+    const actionsHTML = showActions ? `
+      <div class="investor-actions">
+        <button class="btn-xs btn-xs-gold" onclick="abrirParticipacion('${inv.id}')">+ Obra</button>
+        <button class="btn-xs" onclick="editarInversor('${inv.id}')">Editar</button>
+      </div>` : '';
+    return `
+      <div class="investor-row">
+        <div class="investor-avatar">${inicial}</div>
+        <div class="investor-info">
+          <div class="investor-name">${inv.nombre}</div>
+          <div class="investor-email">${inv.email}</div>
+          <div class="investor-tags">${tags}</div>
+        </div>
+        <div>
+          <div class="investor-amount">${capStr}</div>
+          <div class="investor-amount-sub">${participaciones.length} proyecto${participaciones.length!==1?'s':''}</div>
+        </div>
+        ${actionsHTML}
+      </div>`;
+  }
+
+  function populateInversorSelect(inversores) {
+    const sel = document.getElementById('part-inversor');
+    sel.innerHTML = inversores.map(inv => `<option value="${inv.id}">${inv.nombre}</option>`).join('');
+  }
+
+  function populateDocVisibleSelect(inversores) {
+    const sel = document.getElementById('doc-visible');
+    sel.innerHTML = '<option value="todos">Todos los inversores</option>' +
+      inversores.map(inv => `<option value="${inv.id}">${inv.nombre}</option>`).join('');
+  }
+
+  // Guardar inversor
+  window.guardarInversor = async function() {
+    const nombre = document.getElementById('inv-nombre').value.trim();
+    const email = document.getElementById('inv-email').value.trim();
+    if (!nombre || !email) { toast('Completá nombre y email', true); return; }
+
+    const editId = document.getElementById('inversor-edit-id').value;
+    const data = {
+      nombre,
+      email: email.toLowerCase(),
+      telefono: document.getElementById('inv-telefono').value.trim(),
+      notas: document.getElementById('inv-notas').value.trim(),
+      updatedAt: serverTimestamp()
+    };
+
+    try {
+      if (editId) {
+        await updateDoc(doc(db, 'inversores', editId), data);
+        toast('Inversor actualizado ✓');
+      } else {
+        data.createdAt = serverTimestamp();
+        await addDoc(collection(db, 'inversores'), data);
+        toast('Inversor guardado ✓');
+      }
+      closeModal('modal-inversor');
+      clearInversorForm();
+      renderDashboardInversores();
+      loadDashboardStats();
+      if (document.getElementById('panel-inversores').classList.contains('active')) {
+        window.renderInversores();
+      }
+    } catch(e) {
+      toast('Error al guardar: ' + e.message, true);
+    }
+  };
+
+  function clearInversorForm() {
+    ['inv-nombre','inv-email','inv-telefono','inv-notas','inversor-edit-id'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    document.getElementById('modal-inversor-title').textContent = 'Nuevo Inversor';
+  }
+
+  window.editarInversor = async function(id) {
+    const snap = await getDoc(doc(db, 'inversores', id));
+    if (!snap.exists()) return;
+    const inv = snap.data();
+    document.getElementById('inversor-edit-id').value = id;
+    document.getElementById('inv-nombre').value = inv.nombre || '';
+    document.getElementById('inv-email').value = inv.email || '';
+    document.getElementById('inv-telefono').value = inv.telefono || '';
+    document.getElementById('inv-notas').value = inv.notas || '';
+    document.getElementById('modal-inversor-title').textContent = 'Editar Inversor';
+    openModal('modal-inversor');
+  };
+
+  window.abrirParticipacion = async function(inversorId) {
+    const inversores = await getInversores();
+    populateInversorSelect(inversores);
+    document.getElementById('part-inversor').value = inversorId;
+    openModal('modal-participacion');
+  };
+
+  // ══════════════════════════════════════════
+  //  PARTICIPACIONES
+  // ══════════════════════════════════════════
+  window.guardarParticipacion = async function() {
+    const inversorId = document.getElementById('part-inversor').value;
+    const proyecto = document.getElementById('part-proyecto').value;
+    const capital = document.getElementById('part-capital').value;
+    const pct = document.getElementById('part-pct').value;
+    if (!inversorId || !proyecto) { toast('Completá inversor y proyecto', true); return; }
+
+    // Recolectar desembolsos
+    const desembolsos = [];
+    document.querySelectorAll('#desembolsos-list .desembolso-row').forEach(row => {
+      const inputs = row.querySelectorAll('input');
+      const sel = row.querySelector('select');
+      desembolsos.push({
+        descripcion: inputs[0]?.value || '',
+        monto: Number(inputs[1]?.value || 0),
+        fecha: inputs[2]?.value || '',
+        estado: sel?.value || 'Pendiente'
+      });
+    });
+
+    const data = {
+      inversorId,
+      proyecto,
+      capital: Number(capital) || 0,
+      participacion: Number(pct) || 0,
+      notas: document.getElementById('part-notas').value.trim(),
+      desembolsos,
+      createdAt: serverTimestamp()
+    };
+
+    try {
+      await addDoc(collection(db, 'participaciones'), data);
+      toast('Participación guardada ✓');
+      closeModal('modal-participacion');
+      if (document.getElementById('panel-inversores').classList.contains('active')) window.renderInversores();
+      loadDashboardStats();
+    } catch(e) {
+      toast('Error: ' + e.message, true);
+    }
+  };
+
+  // ══════════════════════════════════════════
+  //  INFORMES
+  // ══════════════════════════════════════════
+  window.renderInformes = async function(proyecto) {
+    const list = document.getElementById('informes-list');
+    list.innerHTML = '<div class="loading-row">Cargando...</div>';
+    try {
+      const q = query(collection(db, 'informes'), where('proyecto', '==', proyecto), orderBy('periodo', 'desc'));
+      const snap = await getDocs(q);
+      if (snap.empty) {
+        list.innerHTML = '<div class="loading-row" style="font-style:italic;">Sin informes cargados para ' + proyecto + '</div>';
+        return;
+      }
+      list.innerHTML = snap.docs.map(d => {
+        const inf = d.data();
+        const periodoLabel = inf.periodo ? formatPeriodo(inf.periodo) : '—';
+        const estadoTag = inf.estado === 'publicado'
+          ? '<span class="tag tag-gold">Publicado</span>'
+          : '<span class="tag">Borrador</span>';
+        return `
+          <div class="investor-row">
+            <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;flex:1;">${periodoLabel}</div>
+            <div style="font-weight:200;font-size:0.64rem;color:rgba(42,40,37,0.4);">Avance: ${inf.avance || 0}% · ${inf.etapa || ''}</div>
+            ${estadoTag}
+            <button class="btn-xs" style="margin-left:0.5rem;" onclick="editarInforme('${d.id}')">Editar</button>
+          </div>`;
+      }).join('');
+    } catch(e) {
+      list.innerHTML = '<div class="loading-row">Error al cargar informes.</div>';
+      console.error(e);
+    }
+  };
+
+  function formatPeriodo(periodo) {
+    const [y, m] = periodo.split('-');
+    const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    return `${meses[parseInt(m)-1]} ${y}`;
+  }
+
+  window.guardarInforme = async function(estado) {
+    const proyecto = document.getElementById('inf-proyecto').value;
+    const periodo = document.getElementById('inf-periodo').value;
+    if (!proyecto || !periodo) { toast('Completá proyecto y período', true); return; }
+
+    const hitos = {
+      fundacion: document.getElementById('hito-fundacion').checked,
+      estructuraPB: document.getElementById('hito-estructura-pb').checked,
+      estructuraAzotea: document.getElementById('hito-estructura-az').checked,
+      obraGris: document.getElementById('hito-obra-gris').checked,
+      entrega: document.getElementById('hito-entrega').checked
+    };
+
+    const rubros = {};
+    document.querySelectorAll('.status-select[data-rubro]').forEach(sel => {
+      rubros[sel.dataset.rubro] = sel.value;
+    });
+
+    const data = {
+      proyecto, periodo,
+      avance: Number(document.getElementById('inf-avance').value) || 0,
+      etapa: document.getElementById('inf-etapa').value,
+      hitos, rubros,
+      compras: document.getElementById('inf-compras').value.trim(),
+      proximos: document.getElementById('inf-proximos').value.trim(),
+      mensaje: document.getElementById('inf-mensaje').value.trim(),
+      director: document.getElementById('inf-director').value.trim(),
+      fotos: document.getElementById('inf-fotos').value.trim().split('\n').filter(Boolean),
+      pdf: document.getElementById('inf-pdf').value.trim(),
+      estado,
+      updatedAt: serverTimestamp()
+    };
+
+    const editId = document.getElementById('informe-edit-id').value;
+    try {
+      if (editId) {
+        await updateDoc(doc(db, 'informes', editId), data);
+        toast(estado === 'publicado' ? 'Informe publicado ✓' : 'Borrador guardado ✓');
+      } else {
+        data.createdAt = serverTimestamp();
+        await addDoc(collection(db, 'informes'), data);
+        toast(estado === 'publicado' ? 'Informe publicado ✓' : 'Borrador guardado ✓');
+      }
+      closeModal('modal-informe');
+      clearInformeForm();
+      if (document.getElementById('panel-informes').classList.contains('active')) {
+        window.renderInformes(currentProyectoTab);
+      }
+      loadDashboardStats();
+    } catch(e) {
+      toast('Error: ' + e.message, true);
+    }
+  };
+
+  function clearInformeForm() {
+    document.getElementById('informe-edit-id').value = '';
+    document.getElementById('inf-avance').value = '';
+    document.getElementById('inf-compras').value = '';
+    document.getElementById('inf-proximos').value = '';
+    document.getElementById('inf-mensaje').value = '';
+    document.getElementById('inf-fotos').value = '';
+    document.getElementById('inf-pdf').value = '';
+    document.querySelectorAll('#modal-informe input[type=checkbox]').forEach(c => c.checked = false);
+    document.querySelectorAll('.status-select[data-rubro]').forEach(sel => sel.value = 'Pendiente');
+  }
+
+  window.editarInforme = async function(id) {
+    const snap = await getDoc(doc(db, 'informes', id));
+    if (!snap.exists()) return;
+    const inf = snap.data();
+    document.getElementById('informe-edit-id').value = id;
+    document.getElementById('inf-proyecto').value = inf.proyecto || '';
+    document.getElementById('inf-periodo').value = inf.periodo || '';
+    document.getElementById('inf-avance').value = inf.avance || '';
+    document.getElementById('inf-etapa').value = inf.etapa || '';
+    document.getElementById('inf-compras').value = inf.compras || '';
+    document.getElementById('inf-proximos').value = inf.proximos || '';
+    document.getElementById('inf-mensaje').value = inf.mensaje || '';
+    document.getElementById('inf-director').value = inf.director || '';
+    document.getElementById('inf-fotos').value = (inf.fotos || []).join('\n');
+    document.getElementById('inf-pdf').value = inf.pdf || '';
+    if (inf.hitos) {
+      document.getElementById('hito-fundacion').checked = !!inf.hitos.fundacion;
+      document.getElementById('hito-estructura-pb').checked = !!inf.hitos.estructuraPB;
+      document.getElementById('hito-estructura-az').checked = !!inf.hitos.estructuraAzotea;
+      document.getElementById('hito-obra-gris').checked = !!inf.hitos.obraGris;
+      document.getElementById('hito-entrega').checked = !!inf.hitos.entrega;
+    }
+    if (inf.rubros) {
+      document.querySelectorAll('.status-select[data-rubro]').forEach(sel => {
+        if (inf.rubros[sel.dataset.rubro]) sel.value = inf.rubros[sel.dataset.rubro];
+      });
+    }
+    openModal('modal-informe');
+  };
+
+  // ══════════════════════════════════════════
+  //  DOCUMENTOS
+  // ══════════════════════════════════════════
+  window.renderDocumentos = async function() {
+    const list = document.getElementById('documentos-list');
+    list.innerHTML = '<div class="loading-row">Cargando...</div>';
+    try {
+      const snap = await getDocs(query(collection(db, 'documentos'), orderBy('createdAt', 'desc')));
+      if (snap.empty) {
+        list.innerHTML = '<div class="loading-row">Sin documentos cargados.</div>';
+        return;
+      }
+      list.innerHTML = snap.docs.map(d => {
+        const doc = d.data();
+        return `
+          <div class="investor-row">
+            <span style="font-size:1.1rem;margin-right:0.5rem;">📄</span>
+            <div style="flex:1;">
+              <div style="font-weight:300;font-size:0.8rem;">${doc.nombre || 'Sin nombre'}</div>
+              <div style="font-weight:200;font-size:0.58rem;color:rgba(42,40,37,0.38);margin-top:0.1rem;">${doc.tipo || ''} · ${doc.proyecto || ''} · Visible: ${doc.visibleNombre || 'Todos'}</div>
+            </div>
+            ${doc.link ? `<a href="${doc.link}" target="_blank" class="btn-xs">Ver</a>` : ''}
+            <button class="btn-xs" onclick="eliminarDocumento('${d.id}')">Eliminar</button>
+          </div>`;
+      }).join('');
+    } catch(e) {
+      list.innerHTML = '<div class="loading-row">Error al cargar documentos.</div>';
+    }
+  };
+
+  window.guardarDocumento = async function() {
+    const nombre = document.getElementById('doc-nombre').value.trim();
+    const link = document.getElementById('doc-link').value.trim();
+    if (!nombre) { toast('Ingresá un nombre para el documento', true); return; }
+
+    const visibleSel = document.getElementById('doc-visible');
+    const visibleNombre = visibleSel.options[visibleSel.selectedIndex].text;
+
+    const data = {
+      nombre,
+      tipo: document.getElementById('doc-tipo').value,
+      proyecto: document.getElementById('doc-proyecto').value,
+      visibleId: visibleSel.value,
+      visibleNombre,
+      link,
+      createdAt: serverTimestamp()
+    };
+
+    try {
+      await addDoc(collection(db, 'documentos'), data);
+      toast('Documento guardado ✓');
+      closeModal('modal-doc');
+      document.getElementById('doc-nombre').value = '';
+      document.getElementById('doc-link').value = '';
+      if (document.getElementById('panel-documentos').classList.contains('active')) window.renderDocumentos();
+    } catch(e) {
+      toast('Error: ' + e.message, true);
+    }
+  };
+
+  window.eliminarDocumento = async function(id) {
+    if (!confirm('¿Eliminar este documento?')) return;
+    try {
+      await deleteDoc(doc(db, 'documentos', id));
+      toast('Documento eliminado');
+      window.renderDocumentos();
+    } catch(e) {
+      toast('Error: ' + e.message, true);
+    }
+  };
+
+  // ══════════════════════════════════════════
+  //  PROYECTOS
+  // ══════════════════════════════════════════
+  window.renderProyectos = async function() {
+    const list = document.getElementById('proyectos-list');
+    list.innerHTML = '<div class="loading-row">Cargando...</div>';
+    try {
+      const snap = await getDocs(collection(db, 'proyectos'));
+      if (snap.empty) {
+        list.innerHTML = '<div class="loading-row">Sin proyectos cargados. Usá "+ Nuevo proyecto".</div>';
+        return;
+      }
+      list.innerHTML = snap.docs.map(d => {
+        const p = d.data();
+        const iniciales = (p.nombre || '??').split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+        const estadoColor = p.estado === 'Terminada' ? 'color:var(--green);border-color:rgba(74,124,89,0.3);' : 'border-color:rgba(201,169,110,0.4);color:var(--gold);';
+        return `
+          <div class="investor-row">
+            <div style="width:52px;height:52px;overflow:hidden;flex-shrink:0;background:var(--off-white);">
+              <div style="width:100%;height:100%;background:#d4cfc8;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.2rem;color:rgba(42,40,37,0.3);">${iniciales}</div>
+            </div>
+            <div class="investor-info">
+              <div class="investor-name">${p.nombre}</div>
+              <div class="investor-email">${p.ubicacion || ''} · ${p.anio || ''}</div>
+              <div class="investor-tags"><span class="tag" style="${estadoColor}">${p.estado || ''}</span></div>
+            </div>
+            <div style="font-weight:200;font-size:0.72rem;color:rgba(42,40,37,0.4);text-align:right;min-width:120px;">${p.supCubierta ? p.supCubierta + ' m² cubiertos' : '—'}</div>
+            <div class="investor-actions">
+              <button class="btn-xs" onclick="editarProyecto('${d.id}')">Editar</button>
+            </div>
+          </div>`;
+      }).join('');
+    } catch(e) {
+      list.innerHTML = '<div class="loading-row">Error al cargar proyectos.</div>';
+    }
+  };
+
+  window.guardarProyecto = async function() {
+    const nombre = document.getElementById('proy-nombre').value.trim();
+    if (!nombre) { toast('Ingresá un nombre para el proyecto', true); return; }
+    const editId = document.getElementById('proyecto-edit-id').value;
+
+    const data = {
+      nombre,
+      estado: document.getElementById('proy-estado').value,
+      ubicacion: document.getElementById('proy-ubicacion').value.trim(),
+      anio: document.getElementById('proy-anio').value,
+      supCubierta: Number(document.getElementById('proy-sup-cub').value) || 0,
+      supSemiCubierta: Number(document.getElementById('proy-sup-semi').value) || 0,
+      lote: Number(document.getElementById('proy-lote').value) || 0,
+      plantas: document.getElementById('proy-plantas').value,
+      programa: document.getElementById('proy-programa').value.trim(),
+      memoria: document.getElementById('proy-memoria').value.trim(),
+      fotos: document.getElementById('proy-fotos').value.trim().split('\n').filter(Boolean),
+      updatedAt: serverTimestamp()
+    };
+
+    try {
+      if (editId) {
+        await updateDoc(doc(db, 'proyectos', editId), data);
+        toast('Proyecto actualizado ✓');
+      } else {
+        data.createdAt = serverTimestamp();
+        await addDoc(collection(db, 'proyectos'), data);
+        toast('Proyecto guardado ✓');
+      }
+      closeModal('modal-proyecto');
+      document.getElementById('proyecto-edit-id').value = '';
+      if (document.getElementById('panel-proyectos').classList.contains('active')) window.renderProyectos();
+    } catch(e) {
+      toast('Error: ' + e.message, true);
+    }
+  };
+
+  window.editarProyecto = async function(id) {
+    const snap = await getDoc(doc(db, 'proyectos', id));
+    if (!snap.exists()) return;
+    const p = snap.data();
+    document.getElementById('proyecto-edit-id').value = id;
+    document.getElementById('proy-nombre').value = p.nombre || '';
+    document.getElementById('proy-estado').value = p.estado || 'En proyecto';
+    document.getElementById('proy-ubicacion').value = p.ubicacion || '';
+    document.getElementById('proy-anio').value = p.anio || '';
+    document.getElementById('proy-sup-cub').value = p.supCubierta || '';
+    document.getElementById('proy-sup-semi').value = p.supSemiCubierta || '';
+    document.getElementById('proy-lote').value = p.lote || '';
+    document.getElementById('proy-plantas').value = p.plantas || '1 planta';
+    document.getElementById('proy-programa').value = p.programa || '';
+    document.getElementById('proy-memoria').value = p.memoria || '';
+    document.getElementById('proy-fotos').value = (p.fotos || []).join('\n');
+    openModal('modal-proyecto');
+  };
+
+</script>
 </body>
 </html>
