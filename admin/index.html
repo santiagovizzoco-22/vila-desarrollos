@@ -315,8 +315,9 @@
 <div class="modal-overlay" id="modal-participacion">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-participacion')">✕</button>
-    <div class="modal-title">Agregar participación en obra</div>
+    <div class="modal-title" id="modal-participacion-title">Agregar participación en obra</div>
     <div class="modal-sub">Asignás una obra y el capital invertido del inversor</div>
+    <input type="hidden" id="part-edit-id"/>
     <div class="form-grid">
       <div class="field"><label>Inversor</label>
         <select id="part-inversor"></select>
@@ -685,7 +686,7 @@
       partSnap.forEach(d => {
         const inv = d.data().inversorId;
         if (!partMap[inv]) partMap[inv] = [];
-        partMap[inv].push(d.data());
+        partMap[inv].push({ id: d.id, ...d.data() });
       });
       list.innerHTML = inversores.map(inv => {
         const parts = partMap[inv.id] || [];
@@ -702,27 +703,41 @@
 
   function inversorRowHTML(inv, showActions, participaciones = []) {
     const inicial = (inv.nombre || '?')[0].toUpperCase();
-    const tags = participaciones.map(p => `<span class="tag tag-gold">${p.proyecto}</span>`).join('');
     const totalCapital = participaciones.reduce((s, p) => s + Number(p.capital||0), 0);
     const capStr = totalCapital > 0 ? `USD ${totalCapital.toLocaleString('es-AR')}` : '—';
+
+    // Cada participación como sub-fila editable
+    const partsHTML = participaciones.map(p => `
+      <div style="display:flex;align-items:center;gap:0.6rem;padding:0.3rem 0 0.3rem 52px;font-size:0.68rem;">
+        <span class="tag tag-gold" style="margin:0;">${p.proyecto}</span>
+        <span style="font-weight:200;color:rgba(42,40,37,0.5);">USD ${Number(p.capital||0).toLocaleString('es-AR')} · ${p.participacion||0}%</span>
+        ${showActions ? `
+          <button class="btn-xs" style="padding:0.15rem 0.5rem;font-size:0.45rem;" onclick="editarParticipacion('${p.id}')">Editar</button>
+          <button class="btn-xs" style="padding:0.15rem 0.5rem;font-size:0.45rem;color:#a05555;border-color:rgba(160,85,85,0.3);" onclick="eliminarParticipacion('${p.id}', '${inv.id}')">×</button>
+        ` : ''}
+      </div>`).join('');
+
     const actionsHTML = showActions ? `
       <div class="investor-actions">
         <button class="btn-xs btn-xs-gold" onclick="abrirParticipacion('${inv.id}')">+ Obra</button>
-        <button class="btn-xs" onclick="editarInversor('${inv.id}')">Editar</button>
+        <button class="btn-xs" onclick="editarInversor('${inv.id}')">Editar datos</button>
       </div>` : '';
+
     return `
-      <div class="investor-row">
-        <div class="investor-avatar">${inicial}</div>
-        <div class="investor-info">
-          <div class="investor-name">${inv.nombre}</div>
-          <div class="investor-email">${inv.email}</div>
-          <div class="investor-tags">${tags}</div>
+      <div style="border-bottom:1px solid rgba(42,40,37,0.06);">
+        <div class="investor-row" style="border-bottom:none;">
+          <div class="investor-avatar">${inicial}</div>
+          <div class="investor-info">
+            <div class="investor-name">${inv.nombre}</div>
+            <div class="investor-email">${inv.email}</div>
+          </div>
+          <div>
+            <div class="investor-amount">${capStr}</div>
+            <div class="investor-amount-sub">${participaciones.length} proyecto${participaciones.length!==1?'s':''}</div>
+          </div>
+          ${actionsHTML}
         </div>
-        <div>
-          <div class="investor-amount">${capStr}</div>
-          <div class="investor-amount-sub">${participaciones.length} proyecto${participaciones.length!==1?'s':''}</div>
-        </div>
-        ${actionsHTML}
+        ${partsHTML}
       </div>`;
   }
 
@@ -834,10 +849,47 @@
     };
 
     try {
-      await addDoc(collection(db, 'participaciones'), data);
-      toast('Participación guardada ✓');
+      const editId = document.getElementById('part-edit-id').value;
+      if (editId) {
+        await updateDoc(doc(db, 'participaciones', editId), data);
+        toast('Participación actualizada ✓');
+      } else {
+        data.createdAt = serverTimestamp();
+        await addDoc(collection(db, 'participaciones'), data);
+        toast('Participación guardada ✓');
+      }
       closeModal('modal-participacion');
+      document.getElementById('part-edit-id').value = '';
+      document.getElementById('modal-participacion-title').textContent = 'Agregar participación en obra';
       if (document.getElementById('panel-inversores').classList.contains('active')) window.renderInversores();
+      loadDashboardStats();
+    } catch(e) {
+      toast('Error: ' + e.message, true);
+    }
+  };
+
+  window.editarParticipacion = async function(id) {
+    const snap = await getDoc(doc(db, 'participaciones', id));
+    if (!snap.exists()) return;
+    const p = snap.data();
+    const inversores = await getInversores();
+    populateInversorSelect(inversores);
+    document.getElementById('part-inversor').value = p.inversorId || '';
+    document.getElementById('part-proyecto').value = p.proyecto || '';
+    document.getElementById('part-capital').value = p.capital || '';
+    document.getElementById('part-pct').value = p.participacion || '';
+    document.getElementById('part-notas').value = p.notas || '';
+    document.getElementById('part-edit-id').value = id;
+    document.getElementById('modal-participacion-title').textContent = 'Editar participación en obra';
+    openModal('modal-participacion');
+  };
+
+  window.eliminarParticipacion = async function(partId) {
+    if (!confirm('¿Eliminar esta participación?')) return;
+    try {
+      await deleteDoc(doc(db, 'participaciones', partId));
+      toast('Participación eliminada');
+      window.renderInversores();
       loadDashboardStats();
     } catch(e) {
       toast('Error: ' + e.message, true);
