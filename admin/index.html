@@ -563,7 +563,7 @@
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getAuth, onAuthStateChanged, signOut, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
   import {
     getFirestore, collection, doc,
     addDoc, setDoc, updateDoc, deleteDoc,
@@ -584,10 +584,12 @@
   window._firebaseAuth = auth;
 
   // ── Auth guard ──
-  onAuthStateChanged(auth, user => {
-    if (!user) { window.location.href = '/'; return; }
-    if (user.email.toLowerCase() !== ADMIN_EMAIL) { window.location.href = '/investor'; return; }
-    initAdmin();
+  setPersistence(auth, browserLocalPersistence).then(() => {
+    onAuthStateChanged(auth, user => {
+      if (!user) { window.location.href = '/'; return; }
+      if (user.email.toLowerCase() !== ADMIN_EMAIL) { window.location.href = '/investor/'; return; }
+      initAdmin();
+    });
   });
 
   document.getElementById('btnSalir').addEventListener('click', async () => {
