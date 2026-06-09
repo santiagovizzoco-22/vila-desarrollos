@@ -323,10 +323,7 @@
         <select id="part-inversor"></select>
       </div>
       <div class="field"><label>Proyecto</label>
-        <select id="part-proyecto">
-          <option>Casa Olivo</option><option>Santa Clara L60</option><option>LC 95</option>
-          <option>PG 27</option><option>PG 28</option><option>Azz 23</option>
-        </select>
+        <select id="part-proyecto"></select>
       </div>
       <div class="field"><label>Capital invertido (USD)</label><input type="number" id="part-capital" placeholder="50000"/></div>
       <div class="field"><label>Participación (%)</label><input type="number" id="part-pct" placeholder="35"/></div>
@@ -361,10 +358,7 @@
 
     <div class="form-grid">
       <div class="field"><label>Proyecto</label>
-        <select id="inf-proyecto">
-          <option>PG 27</option><option>PG 28</option><option>Casa Olivo</option>
-          <option>Santa Clara L60</option><option>LC 95</option><option>Azz 23</option>
-        </select>
+        <select id="inf-proyecto"></select>
       </div>
       <div class="field"><label>Período</label><input type="month" id="inf-periodo" value="2026-06"/></div>
       <div class="field"><label>% Avance acumulado</label><input type="number" id="inf-avance" placeholder="9.78" step="0.01"/></div>
@@ -437,7 +431,7 @@
         <select id="doc-tipo"><option>Informe mensual</option><option>Informe trimestral de mercado</option><option>Documentación legal</option><option>Otro</option></select>
       </div>
       <div class="field"><label>Proyecto</label>
-        <select id="doc-proyecto"><option>Todos</option><option>Casa Olivo</option><option>LC 95</option><option>PG 27</option><option>PG 28</option><option>Santa Clara L60</option><option>Azz 23</option></select>
+        <select id="doc-proyecto"><option value="Todos">Todos</option></select>
       </div>
       <div class="field"><label>Visible para</label>
         <select id="doc-visible"><option value="todos">Todos los inversores</option></select>
@@ -608,7 +602,31 @@
     await Promise.all([
       loadDashboardStats(),
       renderDashboardInversores(),
+      populateProyectoSelects(),
     ]);
+  }
+
+  async function populateProyectoSelects() {
+    const snap = await getDocs(collection(db, 'proyectos'));
+    const proyectos = snap.docs.map(d => d.data().nombre).filter(Boolean).sort();
+    const opts = proyectos.map(n => `<option value="${n}">${n}</option>`).join('');
+    // Participacion
+    const selPart = document.getElementById('part-proyecto');
+    if (selPart) selPart.innerHTML = opts;
+    // Informe
+    const selInf = document.getElementById('inf-proyecto');
+    if (selInf) selInf.innerHTML = opts;
+    // Documento
+    const selDoc = document.getElementById('doc-proyecto');
+    if (selDoc) selDoc.innerHTML = `<option value="Todos">Todos</option>` + opts;
+    // También actualizar tabs de informes
+    const tabsEl = document.getElementById('informes-tabs');
+    if (tabsEl && proyectos.length > 0) {
+      tabsEl.innerHTML = proyectos.map((p, i) =>
+        `<div class="tab ${i===0?'active':''}" data-proyecto="${p}" onclick="switchInformesTab(this,'${p}')">${p}</div>`
+      ).join('');
+      currentProyectoTab = proyectos[0];
+    }
   }
 
   // ══════════════════════════════════════════
@@ -811,6 +829,7 @@
   window.abrirParticipacion = async function(inversorId) {
     const inversores = await getInversores();
     populateInversorSelect(inversores);
+    await populateProyectoSelects();
     document.getElementById('part-inversor').value = inversorId;
     openModal('modal-participacion');
   };
